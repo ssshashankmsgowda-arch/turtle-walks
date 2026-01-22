@@ -46,43 +46,43 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
   const allChecked = checkedPoints.length === PLEDGE_POINTS.length;
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-20 pb-0 flex flex-col">
+    <div className="min-h-screen bg-canvas pt-20 pb-0 flex flex-col">
       {/* Top Bar */}
       <div className="px-4 mb-4 max-w-lg mx-auto w-full">
-        <button onClick={onBack} className="text-stone-500 hover:text-stone-800 font-medium mb-4 block">
+        <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium mb-4 block">
           ← Back to Preview
         </button>
         <h2 className="text-2xl font-display font-bold text-indiaNavy">Flag Code of India</h2>
-        <p className="text-sm text-stone-500 mt-1">Read and acknowledge each point to continue.</p>
+        <p className="text-sm text-subText mt-1">Read and acknowledge each point to continue.</p>
       </div>
 
       {/* Content Card */}
       <div className="flex-1 bg-white rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.05)] overflow-hidden relative max-w-lg mx-auto w-full border border-stone-100 flex flex-col">
 
         {/* Header decoration */}
-        <div className="h-2 w-full bg-gradient-to-r from-orange-500 via-white to-green-600" />
+        <div className="h-2 w-full bg-gradient-to-r from-saffron via-stone-200 to-indiaGreen" />
 
         <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 pb-40">
 
           {/* Key Points - Do's and Don'ts */}
           <div className="grid grid-cols-1 gap-4">
-            <section className="bg-green-50 p-4 rounded-xl border border-green-100">
-              <h3 className="font-display font-bold text-lg text-green-800 mb-2 flex items-center gap-2">
+            <section className="bg-indiaGreen/5 p-4 rounded-xl border border-indiaGreen/10">
+              <h3 className="font-display font-bold text-lg text-indiaGreen mb-2 flex items-center gap-2">
                 ✅ Do's
               </h3>
-              <ul className="space-y-1.5 text-xs md:text-sm text-stone-700">
-                <li className="flex gap-2"><span className="text-green-600">✓</span> Treat the Flag with dignity.</li>
-                <li className="flex gap-2"><span className="text-green-600">✓</span> Saffron band always at top.</li>
+              <ul className="space-y-1.5 text-xs md:text-sm text-body">
+                <li className="flex gap-2"><span className="text-indiaGreen font-bold">✓</span> Treat the Flag with dignity.</li>
+                <li className="flex gap-2"><span className="text-indiaGreen font-bold">✓</span> Saffron band always at top.</li>
               </ul>
             </section>
 
-            <section className="bg-red-50 p-4 rounded-xl border border-red-100">
-              <h3 className="font-display font-bold text-lg text-red-800 mb-2 flex items-center gap-2">
+            <section className="bg-danger/5 p-4 rounded-xl border border-danger/10">
+              <h3 className="font-display font-bold text-lg text-danger mb-2 flex items-center gap-2">
                 ❌ Don'ts
               </h3>
-              <ul className="space-y-1.5 text-xs md:text-sm text-stone-700">
-                <li className="flex gap-2"><span className="text-red-600">×</span> Never let flag touch ground.</li>
-                <li className="flex gap-2"><span className="text-red-600">×</span> Don't use as costume/drapery.</li>
+              <ul className="space-y-1.5 text-xs md:text-sm text-body">
+                <li className="flex gap-2"><span className="text-danger font-bold">×</span> Never let flag touch ground.</li>
+                <li className="flex gap-2"><span className="text-danger font-bold">×</span> Don't use as costume/drapery.</li>
               </ul>
             </section>
           </div>
@@ -137,7 +137,7 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
             onClick={onConfirm}
             disabled={!allChecked}
             className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all ${allChecked
-              ? 'bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg hover:-translate-y-1'
+              ? 'bg-gradient-to-r from-saffron to-[#f97316] text-white shadow-lg hover:-translate-y-1'
               : 'bg-stone-200 text-stone-400 cursor-not-allowed'
               }`}
           >

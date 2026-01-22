@@ -36,10 +36,10 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
             <span className="w-8 h-px bg-orange-500"></span> Navigation
           </h3>
           <ul className="space-y-3 text-sm">
-            <li><a href="https://www.communitree.co.in/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors flex items-center gap-2">Communitree Website <ExternalLink size={12} className="opacity-50" /></a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors flex items-center gap-2">About the Mission</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors flex items-center gap-2">Flag Code of India <ExternalLink size={12} className="opacity-50" /></a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors flex items-center gap-2">Gallery</a></li>
+            <li><a href="https://www.communitree.co.in/" target="_blank" rel="noopener noreferrer" className="hover:text-saffron transition-colors flex items-center gap-2">Communitree Website <ExternalLink size={12} className="opacity-50" /></a></li>
+            <li><a href="#" className="hover:text-saffron transition-colors flex items-center gap-2">About the Mission</a></li>
+            <li><a href="#" className="hover:text-saffron transition-colors flex items-center gap-2">Flag Code of India <ExternalLink size={12} className="opacity-50" /></a></li>
+            <li><a href="#" className="hover:text-saffron transition-colors flex items-center gap-2">Gallery</a></li>
           </ul>
         </div>
 
@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
             <li>
               <button
                 onClick={onPrivacyClick}
-                className="hover:text-orange-500 transition-colors text-left"
+                className="hover:text-saffron transition-colors text-left"
               >
                 Privacy Policy
               </button>

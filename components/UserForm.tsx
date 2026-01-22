@@ -203,7 +203,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
   };
 
   return (
-    <div className="min-h-screen bg-sky-50 pt-20 pb-12 px-4 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-canvas pt-20 pb-12 px-4 flex flex-col items-center justify-center">
       <div className="w-full max-w-2xl">
 
         {/* Main Card */}
@@ -228,12 +228,12 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                     selectedSchool.icon
                   )}
                 </div>
-                <span className="text-sm font-bold text-orange-600 tracking-wider uppercase bg-orange-50 px-3 py-1 rounded-full">
+                <span className="text-sm font-bold text-saffron tracking-wider uppercase bg-saffron/5 px-3 py-1 rounded-full">
                   {selectedSchool.name} Portal
                 </span>
               </div>
             )}
-            <h2 className="text-4xl font-display font-bold text-stone-900">
+            <h2 className="text-4xl font-display font-bold text-indiaNavy">
               Enter {selectedSchool ? 'Student' : 'Your'} Details
             </h2>
           </div>
@@ -263,13 +263,13 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 </div>
 
                 {/* Edit Button Bubble */}
-                <div className="absolute bottom-1 right-1 w-9 h-9 bg-sky-500 rounded-full flex items-center justify-center border-[3px] border-white shadow-sm transition-transform group-hover:scale-110">
+                <div className="absolute bottom-1 right-1 w-9 h-9 bg-indiaNavy rounded-full flex items-center justify-center border-[3px] border-white shadow-sm transition-transform group-hover:scale-110">
                   <Pencil size={14} className="text-white fill-white" />
                 </div>
               </div>
 
               {/* Action Links */}
-              <div className="flex items-center gap-4 text-xs font-bold tracking-widest text-sky-500">
+              <div className="flex items-center gap-4 text-xs font-bold tracking-widest text-indiaNavy">
                 <button
                   onClick={() => fileInputRef.current?.click()}
                   className="hover:text-sky-600 transition-colors uppercase"
@@ -307,7 +307,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                   value={userData.fullName}
                   onChange={(e) => setUserData({ ...userData, fullName: e.target.value })}
                   placeholder="Ram Kumar"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-sky-100 focus:border-sky-400 outline-none transition-all"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all"
                 />
               </div>
 
@@ -347,7 +347,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                   <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 ml-1">
                     Whatsapp
                   </label>
-                  <div className="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-sky-100 focus-within:border-sky-400 focus-within:bg-white transition-all">
+                  <div className="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-indiaNavy/10 focus-within:border-indiaNavy focus-within:bg-white transition-all">
                     <div className="bg-slate-100 px-2 flex items-center text-stone-600 font-medium border-r border-slate-200 gap-1 min-w-[100px] justify-center cursor-pointer hover:bg-slate-200 transition-colors relative">
                       <select
                         className="bg-transparent outline-none appearance-none cursor-pointer w-full text-center py-4 pl-2 pr-6 z-10"
@@ -406,7 +406,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               <button
                 onClick={handleContinue}
                 className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg transform active:scale-[0.98] ${isFormValid()
-                  ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-blue-500/30 hover:shadow-blue-500/40 hover:-translate-y-1'
+                  ? 'bg-gradient-to-r from-saffron to-[#f97316] text-white shadow-saffron/30 hover:shadow-saffron/40 hover:-translate-y-1'
                   : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                   }`}
               >
@@ -481,7 +481,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               </button>
               <button
                 onClick={saveCrop}
-                className="px-6 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl shadow-lg shadow-sky-500/20 transition-colors"
+                className="px-6 py-2.5 bg-indiaNavy hover:bg-indiaNavy/90 text-white font-bold rounded-xl shadow-lg shadow-indiaNavy/20 transition-colors"
               >
                 Save Photo
               </button>

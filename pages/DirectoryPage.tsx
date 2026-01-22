@@ -36,18 +36,18 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
     };
 
     return (
-        <div className="min-h-screen bg-stone-50 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-canvas pt-20 pb-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}
                 <div className="mb-8">
                     <button
                         onClick={onBack}
-                        className="text-orange-600 hover:text-orange-700 font-medium mb-4 flex items-center gap-2"
+                        className="text-saffron hover:text-saffron/80 font-medium mb-4 flex items-center gap-2"
                     >
                         ← Back to Home
                     </button>
-                    <h1 className="text-3xl font-bold text-gray-900">School Directory</h1>
+                    <h1 className="text-3xl font-bold text-indiaNavy">School Directory</h1>
                     <p className="mt-2 text-gray-600">Find your school to access your custom pledge portal.</p>
                 </div>
 
@@ -59,7 +59,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                             placeholder="Search by school name or city..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all shadow-sm"
+                            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all shadow-sm"
                         />
                         <span className="absolute left-3 top-3.5 text-gray-400">🔍</span>
                     </div>
@@ -85,7 +85,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                             className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-6 cursor-pointer group hover:-translate-y-1"
                         >
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-2xl group-hover:bg-orange-100 transition-colors overflow-hidden">
+                                <div className="w-12 h-12 rounded-full bg-saffron/5 flex items-center justify-center text-2xl group-hover:bg-saffron/10 transition-colors overflow-hidden">
                                     {school.logoUrl ? (
                                         <img src={school.logoUrl} alt={school.name} className="w-full h-full object-contain p-2" />
                                     ) : (
@@ -99,12 +99,12 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                                 )}
                             </div>
 
-                            <h3 className="font-bold text-lg text-gray-900 mb-1 group-hover:text-orange-600 transition-colors">
+                            <h3 className="font-bold text-lg text-indiaNavy mb-1 group-hover:text-saffron transition-colors">
                                 {school.name}
                             </h3>
                             <p className="text-sm text-gray-500 mb-4">{school.subLocation}, {school.location}</p>
 
-                            <div className="flex items-center text-sm font-medium text-orange-600 group-hover:translate-x-1 transition-transform">
+                            <div className="flex items-center text-sm font-medium text-saffron group-hover:translate-x-1 transition-transform">
                                 Enter Portal →
                             </div>
                         </div>

@@ -14,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
         className="flex items-center gap-3 group cursor-pointer"
         onClick={onLogoClick}
       >
-        <span className="font-display font-bold text-xl text-stone-900 tracking-tight group-hover:text-orange-600 transition-colors">
+        <span className="font-display font-bold text-xl text-indiaNavy tracking-tight group-hover:text-saffron transition-colors">
           My Flag Pledge
         </span>
       </div>

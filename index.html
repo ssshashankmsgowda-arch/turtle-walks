@@ -44,9 +44,13 @@
       theme: {
         extend: {
           colors: {
-            saffron: '#FF9933',
-            indiaGreen: '#138808',
-            indiaNavy: '#000080',
+            saffron: '#FF671F',
+            indiaGreen: '#046A38',
+            indiaNavy: '#06038D',
+            body: '#333333',
+            subText: '#5F6368',
+            canvas: '#FAFAFA',
+            danger: '#D32F2F',
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
@@ -117,6 +121,39 @@
     .cropper-view-box {
       outline: 0;
       box-shadow: 0 0 0 1px #39f;
+    }
+
+    :root {
+      /* --- Brand Identity (The Flag) --- */
+      --color-flag-saffron: #FF671F;
+      --color-flag-white: #FFFFFF;
+      --color-flag-green: #046A38;
+      --color-flag-navy: #06038D;
+
+      /* --- Semantic UI Colors --- */
+      --color-primary: var(--color-flag-saffron);
+      --color-accent: var(--color-flag-navy);
+      --color-success: var(--color-flag-green);
+      --color-danger: #D32F2F;
+
+      /* --- Typography --- */
+      --text-primary: #333333;
+      --text-secondary: #5F6368;
+      --text-on-primary: #FFFFFF;
+
+      /* --- Surfaces --- */
+      --bg-body: #FAFAFA;
+      --bg-surface: #FFFFFF;
+
+      /* --- Special Gradients --- */
+      --gradient-tricolor: linear-gradient(180deg,
+          rgba(255, 103, 31, 0.08) 0%,
+          rgba(255, 255, 255, 1) 50%,
+          rgba(4, 106, 56, 0.08) 100%);
+    }
+
+    .bg-tricolor-gradient {
+      background: var(--gradient-tricolor);
     }
   </style>
 

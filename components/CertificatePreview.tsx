@@ -14,14 +14,14 @@ export const CertificatePreview: React.FC<PreviewProps> = ({ userData, onBack, o
   const { selectedSchool } = useApp();
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-20 pb-12 px-4 flex flex-col items-center">
+    <div className="min-h-screen bg-canvas pt-20 pb-12 px-4 flex flex-col items-center">
       <div className="w-full max-w-lg flex flex-col items-center">
         {/* Header */}
         <div className="w-full flex items-center justify-between mb-8">
-          <button onClick={onBack} className="text-stone-500 hover:text-stone-800 font-medium">
+          <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium">
             ← Edit Details
           </button>
-          <div className="text-sm font-semibold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">
+          <div className="text-sm font-semibold text-saffron bg-saffron/10 px-3 py-1 rounded-full">
             Step 2 of 3
           </div>
         </div>
@@ -45,7 +45,7 @@ export const CertificatePreview: React.FC<PreviewProps> = ({ userData, onBack, o
           </button>
           <button
             onClick={onConfirm}
-            className="flex-1 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold rounded-xl shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 hover:shadow-orange-500/30 transition-all"
+            className="flex-1 py-3 bg-gradient-to-r from-saffron to-[#f97316] text-white font-bold rounded-xl shadow-lg shadow-saffron/20 flex items-center justify-center gap-2 hover:shadow-saffron/30 transition-all"
           >
             Looks Good <CheckCircle2 size={18} />
           </button>

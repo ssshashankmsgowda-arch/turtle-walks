@@ -104,7 +104,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 font-sans text-stone-900 flex flex-col">
+    <div className="min-h-screen bg-canvas font-sans text-body flex flex-col">
       <Header onLogoClick={handleReset} />
 
       {/* 🚀 Main content with CSS fade transition */}
@@ -121,13 +121,13 @@ const App: React.FC = () => {
               <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-end mb-10">
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-stone-900 border-b-4 border-green-600 inline-block pb-2">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-indiaNavy border-b-4 border-indiaGreen inline-block pb-2">
                       PARTNER<br />INSTITUTIONS
                     </h2>
                   </div>
                   <button
                     onClick={() => goToStep(Step.Directory)}
-                    className="hidden md:flex items-center gap-2 text-stone-500 font-bold text-sm tracking-wider hover:text-orange-600 transition-colors"
+                    className="hidden md:flex items-center gap-2 text-stone-500 font-bold text-sm tracking-wider hover:text-saffron transition-colors"
                   >
                     VIEW ALL SCHOOLS →
                   </button>
@@ -152,9 +152,9 @@ const App: React.FC = () => {
 
                       <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/50 transition-transform duration-300 group-hover:scale-110 ${index === 0 ? 'bg-orange-50 text-orange-600' :
-                            index === 1 ? 'bg-blue-50 text-blue-600' :
-                              'bg-green-50 text-green-600'
+                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/50 transition-transform duration-300 group-hover:scale-110 ${index === 0 ? 'bg-saffron/5 text-saffron' :
+                            index === 1 ? 'bg-indiaNavy/5 text-indiaNavy' :
+                              'bg-indiaGreen/5 text-indiaGreen'
                             }`}>
                             {school.logoUrl ? <img src={school.logoUrl} className="w-full h-full object-contain p-3" /> : school.icon}
                           </div>
@@ -165,7 +165,7 @@ const App: React.FC = () => {
                           </div>
                         </div>
 
-                        <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-orange-600 transition-colors">{school.name}</h3>
+                        <h3 className="text-xl font-bold text-indiaNavy mb-2 group-hover:text-saffron transition-colors">{school.name}</h3>
 
                         <p className="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1.5 mb-8">
                           <svg className="text-stone-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -207,7 +207,7 @@ const App: React.FC = () => {
                 </p>
                 <button
                   onClick={handleStart}
-                  className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] rounded-full hover:shadow-[0_0_40px_-5px_rgba(255,165,0,0.6)] transition-all transform hover:-translate-y-1"
+                  className="bg-gradient-to-r from-saffron via-white to-indiaGreen p-[2px] rounded-full hover:shadow-[0_0_40px_-5px_rgba(255,103,31,0.6)] transition-all transform hover:-translate-y-1"
                 >
                   <div className="bg-stone-900 px-8 py-4 rounded-full flex items-center gap-2">
                     <span className="text-white font-bold text-lg tracking-wide">TAKE THE PLEDGE</span>

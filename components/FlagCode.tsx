@@ -122,13 +122,13 @@ export const FlagCode: React.FC = () => {
 
                 {/* Header */}
                 <div className="mb-16">
-                    <div className="inline-flex items-center justify-center p-3 bg-orange-100 rounded-full mb-6">
-                        <BookOpen className="text-orange-600" size={32} />
+                    <div className="inline-flex items-center justify-center p-3 bg-saffron/10 rounded-full mb-6">
+                        <BookOpen className="text-saffron" size={32} />
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-indiaNavy mb-6 tracking-tight">
                         Indian Flag: Code of Conduct
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-orange-500 via-white to-green-500 mb-8 border border-stone-200"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-saffron via-stone-200 to-indiaGreen mb-8 border border-stone-200"></div>
 
                     <p className="text-lg text-stone-700 max-w-2xl leading-relaxed">
                         The Indian flag is governed by the <strong>Flag Code of India, 2002</strong> and the <strong>Prevention of Insults to National Honour Act, 1971</strong>. This section provides schools and citizens with complete guidance on how to properly use, respect, store, and dispose of the Indian flag in line with official rules.
@@ -138,8 +138,8 @@ export const FlagCode: React.FC = () => {
                 <div className="space-y-16">
                     {/* 1. Design & Specification */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
-                            <span className="bg-orange-100 text-orange-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6 flex items-center gap-3">
+                            <span className="bg-saffron/10 text-saffron w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
                             The Indian Flag: Design & Specification
                         </h3>
                         <div className="grid md:grid-cols-3 gap-6">
@@ -165,13 +165,13 @@ export const FlagCode: React.FC = () => {
 
                     {/* 2. How to Use */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
-                            <span className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6 flex items-center gap-3">
+                            <span className="bg-indiaNavy/10 text-indiaNavy w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
                             How to use the Indian flag
                         </h3>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-green-50/50 p-6 rounded-2xl border border-green-100">
-                                <div className="flex items-center gap-2 mb-4 text-green-700 font-bold text-lg">
+                                <div className="flex items-center gap-2 mb-4 text-indiaGreen font-bold text-lg">
                                     <Check size={24} /> Do
                                 </div>
                                 <ul className="space-y-3">
@@ -185,14 +185,14 @@ export const FlagCode: React.FC = () => {
                                         "Place at centre/highest point if with other flags."
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-stone-700 text-sm">
-                                            <span className="text-green-500 mt-1">✓</span>
+                                            <span className="text-indiaGreen mt-1">✓</span>
                                             {item}
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                             <div className="bg-red-50/50 p-6 rounded-2xl border border-red-100">
-                                <div className="flex items-center gap-2 mb-4 text-red-700 font-bold text-lg">
+                                <div className="flex items-center gap-2 mb-4 text-danger font-bold text-lg">
                                     <X size={24} /> Don't
                                 </div>
                                 <ul className="space-y-3">
@@ -204,7 +204,7 @@ export const FlagCode: React.FC = () => {
                                         "Don't use covering for stages, podiums, or vehicles."
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-stone-700 text-sm">
-                                            <span className="text-red-500 mt-1">✗</span>
+                                            <span className="text-danger mt-1">✗</span>
                                             {item}
                                         </li>
                                     ))}
@@ -215,13 +215,13 @@ export const FlagCode: React.FC = () => {
 
                     {/* 3. Handling and Care */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
-                            <span className="bg-purple-100 text-purple-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6 flex items-center gap-3">
+                            <span className="bg-indiaNavy/10 text-indiaNavy w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
                             How to respect the Indian flag
                         </h3>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-green-50/50 p-6 rounded-2xl border border-green-100">
-                                <div className="flex items-center gap-2 mb-4 text-green-700 font-bold text-lg">
+                                <div className="flex items-center gap-2 mb-4 text-indiaGreen font-bold text-lg">
                                     <Check size={24} /> Do
                                 </div>
                                 <ul className="space-y-3">
@@ -241,7 +241,7 @@ export const FlagCode: React.FC = () => {
                                 </ul>
                             </div>
                             <div className="bg-red-50/50 p-6 rounded-2xl border border-red-100">
-                                <div className="flex items-center gap-2 mb-4 text-red-700 font-bold text-lg">
+                                <div className="flex items-center gap-2 mb-4 text-danger font-bold text-lg">
                                     <X size={24} /> Don't
                                 </div>
                                 <ul className="space-y-3">
@@ -265,9 +265,9 @@ export const FlagCode: React.FC = () => {
                     </section>
 
                     {/* 4. What counts as disrespect */}
-                    <section className="bg-orange-50 border border-orange-100 rounded-2xl p-8">
-                        <h3 className="text-xl font-bold text-orange-900 mb-4 flex items-center gap-2">
-                            <AlertTriangle className="text-orange-600" />
+                    <section className="bg-orange-50/50 border border-saffron/10 rounded-2xl p-8">
+                        <h3 className="text-xl font-bold text-indiaNavy mb-4 flex items-center gap-2">
+                            <AlertTriangle className="text-saffron" />
                             What counts as disrespect?
                         </h3>
                         <p className="text-orange-800 text-sm mb-4">The <strong>Prevention of Insults to National Honour Act, 1971</strong> makes these actions illegal:</p>
@@ -288,7 +288,7 @@ export const FlagCode: React.FC = () => {
 
                     {/* 5. Disposal */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6 flex items-center gap-3">
                             <span className="bg-stone-200 text-stone-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">5</span>
                             How to dispose of a damaged flag
                         </h3>
@@ -296,7 +296,7 @@ export const FlagCode: React.FC = () => {
 
                         <div className="grid md:grid-cols-2 gap-6 mb-8">
                             <div className="group hover:bg-stone-50 transition-colors p-6 rounded-2xl border border-stone-200">
-                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 text-orange-600">
+                                <div className="w-12 h-12 bg-saffron/10 rounded-xl flex items-center justify-center mb-4 text-saffron">
                                     <Flame size={24} />
                                 </div>
                                 <h4 className="font-bold text-lg text-stone-900 mb-2">Method 1: Respectful Burning</h4>
@@ -326,21 +326,21 @@ export const FlagCode: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="bg-red-50 border border-red-100 rounded-xl p-5">
-                            <h4 className="font-bold text-red-800 mb-2 flex items-center gap-2 text-sm"><X size={16} /> What NOT to do</h4>
-                            <p className="text-sm text-red-700/80">Never throw in dustbins/trash. Never leave on streets or playgrounds. Never tear into pieces before disposal (burn/bury as a whole).</p>
+                        <div className="bg-danger/5 border border-danger/10 rounded-xl p-5">
+                            <h4 className="font-bold text-danger mb-2 flex items-center gap-2 text-sm"><X size={16} /> What NOT to do</h4>
+                            <p className="text-sm text-danger/80">Never throw in dustbins/trash. Never leave on streets or playgrounds. Never tear into pieces before disposal (burn/bury as a whole).</p>
                         </div>
                     </section>
 
                     {/* 6. FAQs */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-8">Frequently Asked Questions</h3>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-8">Frequently Asked Questions</h3>
                         <div className="grid gap-3">
                             {FAQS.map((faq, index) => (
                                 <div key={index} className={`border border-stone-200 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'bg-stone-50 ring-1 ring-stone-200' : 'bg-white hover:border-stone-300'}`}>
                                     <button onClick={() => toggleFAQ(index)} className="w-full flex items-center justify-between p-4 text-left focus:outline-none">
-                                        <span className={`font-semibold text-sm md:text-base ${openIndex === index ? 'text-blue-700' : 'text-stone-800'}`}>{faq.question}</span>
-                                        {openIndex === index ? <ChevronUp className="text-blue-600 shrink-0 ml-4" size={18} /> : <ChevronDown className="text-stone-400 shrink-0 ml-4" size={18} />}
+                                        <span className={`font-semibold text-sm md:text-base ${openIndex === index ? 'text-indiaNavy' : 'text-stone-800'}`}>{faq.question}</span>
+                                        {openIndex === index ? <ChevronUp className="text-indiaNavy shrink-0 ml-4" size={18} /> : <ChevronDown className="text-stone-400 shrink-0 ml-4" size={18} />}
                                     </button>
                                     <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                                         <div className="p-4 pt-0 text-stone-700 text-sm leading-relaxed border-t border-stone-200/50 mt-1">
@@ -357,7 +357,7 @@ export const FlagCode: React.FC = () => {
 
                     {/* 7. Participation */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6">How Schools Can Participate</h3>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6">How Schools Can Participate</h3>
                         <div className="bg-[#1c1917] rounded-3xl p-8 md:p-12 relative overflow-hidden">
                             {/* Watermark subtle effect */}
                             <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none">
@@ -415,7 +415,7 @@ export const FlagCode: React.FC = () => {
 
                     {/* 8. Official References */}
                     <section>
-                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b border-stone-200 pb-4">Official References</h3>
+                        <h3 className="text-2xl font-bold text-indiaNavy mb-6 border-b border-stone-200 pb-4">Official References</h3>
                         <div className="grid gap-4 md:grid-cols-2">
                             {REFERENCES.map((ref, i) => (
                                 <a key={i} href={ref.link} target="_blank" rel="noreferrer" className="group block p-5 rounded-xl border border-stone-200 hover:border-blue-300 hover:shadow-sm transition-all bg-white">
