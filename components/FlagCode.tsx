@@ -40,7 +40,7 @@ const FAQS = [
     },
     {
         question: "Is it illegal to disrespect the flag?",
-        answer: "Yes. The Prevention of Insults to National Honour Act, 1971 makes intentional disrespect of the flag a criminal offence.",
+        answer: "Yes. Under the Prevention of Insults to National Honour Act, 1971, intentional disrespect (burning, defacing, etc.) in public is a criminal offence punishable by up to 3 years imprisonment, a fine, or both.",
         source: "mha.gov",
         link: "https://www.mha.gov.in/en/documents/national-flag-emblem-anthem"
     }
