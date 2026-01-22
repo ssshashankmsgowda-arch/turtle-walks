@@ -19,11 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
       <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center">
 
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-orange-100 shadow-sm text-[#C05621] font-bold text-xs tracking-wider mb-10 hover:bg-white transition-colors cursor-default animate-slide-up">
-          <span className="w-2 h-2 rounded-full bg-[#ED8936]" />
-          NATIONAL PRIDE INITIATIVE
-        </div>
+
 
         {/* Main Heading */}
         <h1 className="font-display font-black tracking-tighter leading-[0.85] mb-6 animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -31,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
             Pledge for
           </span>
           <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-4 text-6xl md:text-9xl font-black tracking-tight leading-none pb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF9933] via-[#FFFFFF] to-[#138808] drop-shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF9933] via-[#FFFFFF] to-[#138808] drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.5)]">
               MY INDIAN FLAG
             </span>
           </div>
