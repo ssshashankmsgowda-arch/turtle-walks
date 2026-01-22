@@ -105,7 +105,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                             <p className="text-sm text-gray-500 mb-4">{school.subLocation}, {school.location}</p>
 
                             <div className="flex items-center text-sm font-medium text-saffron group-hover:translate-x-1 transition-transform">
-                                Enter Portal →
+                                Enter →
                             </div>
                         </div>
                     ))}

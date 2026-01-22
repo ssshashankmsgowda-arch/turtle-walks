@@ -229,7 +229,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                   )}
                 </div>
                 <span className="text-sm font-bold text-saffron tracking-wider uppercase bg-saffron/5 px-3 py-1 rounded-full">
-                  {selectedSchool.name} Portal
+                  {selectedSchool.name}
                 </span>
               </div>
             )}
