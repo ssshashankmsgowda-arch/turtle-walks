@@ -1,126 +1,111 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, BookOpen, HelpCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp, BookOpen, ExternalLink, Check, X, AlertTriangle, Flame, Shovel } from 'lucide-react';
 
 const FAQS = [
     {
-        question: "What is the Indian National Flag?",
-        answer: "The Indian National Flag, also known as the Tricolour, is the official flag of India consisting of saffron, white, and green horizontal bands with the Ashoka Chakra at the centre."
+        question: "Can schools display the Indian flag every day?",
+        answer: "Yes. If a school has a flagpole, it may display the Indian flag every day, provided the flag is in good condition and there is proper lighting if it remains displayed at night.",
+        source: "pw",
+        link: "https://www.pw.live/upsc/exams/flag-code-of-india-2002"
     },
     {
-        question: "Who can hoist or display the Indian National Flag?",
-        answer: "Any Indian citizen, institution, or organisation may hoist the flag, provided it is done in accordance with the Flag Code of India."
+        question: "What should we do if the flag accidentally touches the ground?",
+        answer: "Do not panic. Simply pick it up respectfully, check it for damage, and if it is still in good condition, it can continue to be displayed.",
+        source: "indianexpress",
+        link: "https://indianexpress.com/article/explained/how-to-store-tricolour-national-flag-code-rules-8093006/"
     },
     {
-        question: "Is it mandatory to follow the Flag Code of India?",
-        answer: "Yes. The Flag Code of India provides binding guidelines for respectful display and use of the national flag."
+        question: "Can we use plastic flags?",
+        answer: "No. Plastic flags do not meet the official standards. Use flags made from cotton, polyester, wool, silk, or khadi.",
+        source: "postalstudy",
+        link: "https://www.postalstudy.in/2022/08/salient-features-of-national-flag-code.html"
     },
     {
-        question: "Which colour must always be on top while displaying the flag?",
-        answer: "The saffron band must always be on top when the flag is displayed horizontally or vertically."
+        question: "What is the correct 3:2 ratio?",
+        answer: "For every 3 units of length, the flag should be 2 units wide. Examples: 90cm × 60cm, 60cm × 40cm, 30cm × 20cm.",
+        source: "nsiindia.gov",
+        link: "http://www.nsiindia.gov.in/writereaddata/FileUploads/harghartiranga.pdf"
     },
     {
-        question: "Can the Indian flag be flown at night?",
-        answer: "Yes, the flag may be flown day and night, provided it is properly illuminated and displayed with dignity."
+        question: "Can we hoist the flag on rainy days?",
+        answer: "It is better to avoid hoisting the flag during heavy rain to prevent damage. If the flag is already displayed, bring it down safely.",
+        source: "vajiramandravi",
+        link: "https://vajiramandravi.com/current-affairs/flag-code-of-india-2002/"
     },
     {
-        question: "Can the flag touch the ground or water?",
-        answer: "No. The flag must never touch the ground, water, or any unclean surface."
+        question: "Who can dispose of a damaged flag?",
+        answer: "Any citizen or school can dispose of a damaged flag respectfully at home or in a school. It is not necessary to contact officials, but the disposal must follow the rules of burning or burial in private.",
+        source: "indiatoday",
+        link: "https://www.indiatoday.in/information/story/lmc-guidelines-on-national-flag-code-how-to-dispose-of-tricolour-properly-1987573-2022-08-13"
     },
     {
-        question: "Is flying the flag upside down allowed?",
-        answer: "No. Flying the flag upside down is considered disrespectful."
+        question: "What if we don't have a fire or private space for burning?",
+        answer: "Burial is an acceptable alternative. Place the folded flag in a box and bury it in a clean, private location with respect.",
+        source: "indiatoday",
+        link: "https://www.indiatoday.in/information/story/lmc-guidelines-on-national-flag-code-how-to-dispose-of-tricolour-properly-1987573-2022-08-13"
     },
     {
-        question: "Can the flag be used as decoration or drapery?",
-        answer: "No. The flag must not be used as a decorative item, tablecloth, or backdrop."
+        question: "Can students take photos with the flag?",
+        answer: "Yes, as long as the flag is displayed respectfully and the photos do not mock or insult the flag.",
+        source: "thestatesman",
+        link: "https://www.thestatesman.com/india/independence-day-2025-tricolour-rules-dos-and-donts-every-indian-must-know-1503470781.html"
     },
     {
-        question: "Is it allowed to use the flag as clothing or costume?",
-        answer: "No. The flag should not be used as apparel, uniform, or accessory."
+        question: "Is it illegal to disrespect the flag?",
+        answer: "Yes. The Prevention of Insults to National Honour Act, 1971 makes intentional disrespect of the flag a criminal offence.",
+        source: "mha.gov",
+        link: "https://www.mha.gov.in/en/documents/national-flag-emblem-anthem"
+    }
+];
+
+const REFERENCES = [
+    {
+        title: "Flag Code of India, 2002 (as amended in 2021 & 2022)",
+        desc: "Full official rules for the design, display, use, and care of the Indian flag.",
+        source: "Ministry of Home Affairs (MHA)",
+        link: "https://www.mha.gov.in/sites/default/files/FlagCode_18072023_0.pdf"
     },
     {
-        question: "Can text, logos, or images be printed on the flag?",
-        answer: "No. Writing, printing, or placing any symbol on the flag is prohibited."
+        title: "Frequently Asked Questions (FAQs) – Indian National Flag",
+        desc: "Official Q&A on flag materials, sizes, display, and citizen use.",
+        source: "Ministry of Home Affairs (MHA)",
+        link: "https://www.mha.gov.in/sites/default/files/FAQ_18072023.pdf"
     },
     {
-        question: "Can the Indian flag be used for commercial advertising?",
-        answer: "No. Commercial use of the national flag is not permitted."
+        title: "Salient features of the Flag Code of India, 2002",
+        desc: "Short summary of key rules and practices.",
+        source: "Press Information Bureau (PIB)",
+        link: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1849012"
     },
     {
-        question: "What materials are permitted for making the flag?",
-        answer: "The flag may be made of khadi, cotton, silk, wool, or polyester as prescribed."
+        title: "Prevention of Insults to National Honour Act, 1971",
+        desc: "Law defining criminal offences related to disrespect of the national flag, Constitution, and anthem.",
+        source: "Ministry of Home Affairs (MHA)",
+        link: "https://www.mha.gov.in/en/documents/national-flag-emblem-anthem"
     },
     {
-        question: "Are plastic flags allowed?",
-        answer: "Plastic flags are discouraged, as improper disposal may lead to disrespect."
+        title: "National Flag, Emblem & Anthem – Document Hub",
+        desc: "Central government page listing all official documents, circulars, and orders on the Indian flag.",
+        source: "Ministry of Home Affairs (MHA)",
+        link: "https://www.mha.gov.in/en/documents/national-flag-emblem-anthem"
     },
     {
-        question: "Can a damaged or faded flag be displayed?",
-        answer: "No. Only clean and well-maintained flags should be displayed."
+        title: "Frequently Asked Questions – Har Ghar Tiranga",
+        desc: "Citizen-friendly FAQ booklet on hoisting the Indian flag at home.",
+        source: "PIB / Ministry of Culture",
+        link: "https://dghindia.gov.in/assets/downloads/62ea680a245a7faqsharghartiranga.pdf"
     },
     {
-        question: "How should the flag be hoisted and lowered?",
-        answer: "The flag should be hoisted briskly and lowered slowly with respect."
+        title: "FAQ Booklet – Flag Code of India and its FAQ",
+        desc: "Comprehensive FAQ document combining Flag Code rules and citizen questions.",
+        source: "CG Publications",
+        link: "http://www.cgspublicationindia.com/PDFOM/Flag%20Code%20of%20India%20&%20its%20FAQ.pdf"
     },
     {
-        question: "Can the flag be dipped as a mark of respect to a person?",
-        answer: "No. The Indian National Flag must never be dipped."
-    },
-    {
-        question: "When is the flag flown at half-mast?",
-        answer: "Only on occasions of state mourning as officially declared by the Government of India."
-    },
-    {
-        question: "Can the flag be displayed along with other flags?",
-        answer: "Yes, but the Indian flag must always be in a position of honour."
-    },
-    {
-        question: "How should the flag be folded and stored?",
-        answer: "The flag should be folded neatly and stored respectfully to avoid damage."
-    },
-    {
-        question: "How should old or damaged flags be disposed of?",
-        answer: "They should be disposed of privately and respectfully, preferably by burning."
-    },
-    {
-        question: "Should flags be collected after public events?",
-        answer: "Yes. Flags must not be left unattended or discarded after events."
-    },
-    {
-        question: "Is disrespecting the Indian flag punishable?",
-        answer: "Yes. Intentional disrespect can attract penalties under Indian law."
-    },
-    {
-        question: "Are schools and institutions required to follow the Flag Code?",
-        answer: "Yes. All public institutions must comply with the Flag Code of India."
-    },
-    {
-        question: "Can citizens hoist the flag at their homes?",
-        answer: "Yes. Citizens may hoist the flag on any day, following proper etiquette."
-    },
-    {
-        question: "Can the flag be displayed on vehicles?",
-        answer: "Only authorised vehicles may display the flag as per government rules."
-    },
-    {
-        question: "Is ignorance of the Flag Code a valid excuse?",
-        answer: "No. Citizens are expected to be aware of proper flag etiquette."
-    },
-    {
-        question: "Can the flag be printed on paper for awareness purposes?",
-        answer: "Yes, provided it is depicted respectfully and not misused."
-    },
-    {
-        question: "Can the flag be carried in processions or parades?",
-        answer: "Yes, as long as it is carried with dignity and not allowed to touch the ground."
-    },
-    {
-        question: "Why is flag etiquette important?",
-        answer: "It reflects respect for the nation and its constitutional values."
-    },
-    {
-        question: "Where can citizens find official flag guidelines?",
-        answer: "From the Flag Code of India issued by the Ministry of Home Affairs."
+        title: "Wikipedia – Flag Code of India",
+        desc: "Neutral, detailed overview of the Flag Code history and provisions.",
+        source: "Wikipedia",
+        link: "https://en.wikipedia.org/wiki/Flag_Code_of_India"
     }
 ];
 
@@ -132,81 +117,322 @@ export const FlagCode: React.FC = () => {
     };
 
     return (
-        <section className="bg-white py-20 px-4">
+        <section className="bg-white py-16 px-4 md:px-8">
             <div className="max-w-4xl mx-auto">
 
-                {/* Header Section */}
+                {/* Header */}
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center justify-center p-3 bg-orange-100 rounded-full mb-6">
                         <BookOpen className="text-orange-600" size={32} />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-stone-900 mb-6 tracking-tight">
-                        Indian National Flag – Code of Conduct
+                    <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 tracking-tight">
+                        Indian Flag: Code of Conduct
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-orange-500 via-white to-green-500 mx-auto rounded-full mb-8 border border-stone-200"></div>
 
-                    <div className="bg-stone-50 rounded-3xl p-8 md:p-10 shadow-sm border border-stone-100 text-left">
-                        <p className="text-lg text-stone-700 leading-relaxed mb-6">
-                            The Indian National Flag is not just a piece of cloth; it is a symbol of our nation’s pride, unity, and freedom. Every colour and symbol on the flag has deep meaning and represents the values of India and its people.
-                        </p>
-                        <p className="text-lg text-stone-700 leading-relaxed mb-6">
-                            To ensure that the Tricolour is always treated with respect, the Government of India has issued clear rules known as the Flag Code of India, under the Ministry of Home Affairs (MHA). These rules explain how the flag should be hoisted, displayed, handled, stored, and disposed of.
-                        </p>
-                        <p className="text-lg text-stone-700 leading-relaxed mb-6">
-                            Many times, people disrespect the flag unknowingly due to lack of awareness. This section is created to help citizens understand the correct and respectful way to use the Indian National Flag in daily life, public events, schools, institutions, and celebrations.
-                        </p>
-                        <p className="text-lg text-stone-700 leading-relaxed font-medium">
-                            By following the Flag Code, every citizen can show love for the nation while ensuring that the dignity and honour of the Indian National Flag are always preserved.
-                        </p>
-                    </div>
+                    <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                        The Indian flag is governed by the <strong>Flag Code of India, 2002</strong> and the <strong>Prevention of Insults to National Honour Act, 1971</strong>. This section provides schools and citizens with complete guidance on how to properly use, respect, store, and dispose of the Indian flag in line with official rules.
+                    </p>
                 </div>
 
-                {/* FAQs Section */}
-                <div className="mb-16">
-                    <div className="flex items-center gap-3 mb-8">
-                        <HelpCircle className="text-blue-600" size={28} />
-                        <h3 className="text-2xl font-bold text-stone-900">Frequently Asked Questions (FAQs)</h3>
-                    </div>
+                <div className="space-y-16">
+                    {/* 1. Design & Specification */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                            <span className="bg-orange-100 text-orange-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                            The Indian Flag: Design & Specification
+                        </h3>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <div className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                                <h4 className="font-bold text-stone-900 mb-3">Official Design</h4>
+                                <p className="text-sm text-stone-600">Three equal horizontal bands: <strong className="text-orange-600">Saffron (top)</strong>, White (middle), and <strong className="text-green-600">Green (bottom)</strong>. Centre has the <strong>Ashoka Chakra</strong> (navy blue wheel with 24 spokes).</p>
+                            </div>
+                            <div className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                                <h4 className="font-bold text-stone-900 mb-3">Correct Ratio</h4>
+                                <p className="text-sm text-stone-600 mb-2">Must follow a <strong>length-to-width ratio of 3:2</strong>.</p>
+                                <ul className="text-xs text-stone-500 list-disc ml-4 space-y-1">
+                                    <li>90cm × 60cm (Correct)</li>
+                                    <li>60cm × 40cm (Correct)</li>
+                                </ul>
+                            </div>
+                            <div className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                                <h4 className="font-bold text-stone-900 mb-3">Permitted Materials</h4>
+                                <p className="text-sm text-stone-600 mb-2"><strong>Natural or semi-natural fibres</strong>: Cotton, Polyester, Wool, Silk, Khadi.</p>
+                                <p className="text-xs text-red-600 font-medium">Do NOT use plastic flags.</p>
+                            </div>
+                        </div>
+                    </section>
 
-                    <div className="grid grid-cols-1 gap-4">
-                        {FAQS.map((faq, index) => (
-                            <div
-                                key={index}
-                                className={`border border-stone-200 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'bg-stone-50 shadow-md border-stone-300' : 'bg-white hover:border-stone-300'}`}
-                            >
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
-                                >
-                                    <span className={`font-semibold text-lg ${openIndex === index ? 'text-blue-700' : 'text-stone-800'}`}>
-                                        {index + 1}. {faq.question}
-                                    </span>
-                                    {openIndex === index ? (
-                                        <ChevronUp className="text-blue-600 shrink-0 ml-4" size={20} />
-                                    ) : (
-                                        <ChevronDown className="text-stone-400 shrink-0 ml-4" size={20} />
-                                    )}
-                                </button>
+                    {/* 2. How to Use */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                            <span className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                            How to use the Indian flag
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="bg-green-50/50 p-6 rounded-2xl border border-green-100">
+                                <div className="flex items-center gap-2 mb-4 text-green-700 font-bold text-lg">
+                                    <Check size={24} /> Do
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Hoist with saffron band always on top.",
+                                        "Display in a position of prominence and respect.",
+                                        "Ensure flag is clean, bright, and undamaged.",
+                                        "Fly upright and fully unfurled.",
+                                        "Use a proper flag staff or stand.",
+                                        "Display on all days if proper facilities exist.",
+                                        "Place at centre/highest point if with other flags."
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-stone-700 text-sm">
+                                            <span className="text-green-500 mt-1">✓</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-red-50/50 p-6 rounded-2xl border border-red-100">
+                                <div className="flex items-center gap-2 mb-4 text-red-700 font-bold text-lg">
+                                    <X size={24} /> Don't
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Don't display torn, faded, or damaged flags.",
+                                        "Don't fly at night without proper lighting.",
+                                        "Don't fly on the same pole as another flag.",
+                                        "Don't place anything above or in front of the flag.",
+                                        "Don't use covering for stages, podiums, or vehicles."
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-stone-700 text-sm">
+                                            <span className="text-red-500 mt-1">✗</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
 
-                                <div
-                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                                >
-                                    <div className="p-5 pt-0 text-stone-600 leading-relaxed border-t border-stone-200/50 mt-2">
-                                        {faq.answer}
+                    {/* 3. Handling and Care */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                            <span className="bg-purple-100 text-purple-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                            How to respect the Indian flag
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="bg-green-50/50 p-6 rounded-2xl border border-green-100">
+                                <div className="flex items-center gap-2 mb-4 text-green-700 font-bold text-lg">
+                                    <Check size={24} /> Do
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Handle with clean hands and respect.",
+                                        "Never let it touch ground, floor, or water.",
+                                        "Fold properly using official method.",
+                                        "Store in a clean, dry place.",
+                                        "Keep paper/cloth flags safe; don't leave lying around.",
+                                        "Collect and store flags after events."
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-stone-700 text-sm">
+                                            <span className="text-green-500 mt-1">✓</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-red-50/50 p-6 rounded-2xl border border-red-100">
+                                <div className="flex items-center gap-2 mb-4 text-red-700 font-bold text-lg">
+                                    <X size={24} /> Don't
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Don't print words, logos, or images on the flag.",
+                                        "Don't write or stick anything on the flag.",
+                                        "Don't use as clothing, costume, or accessory.",
+                                        "Don't use as cushion, napkin, or decor.",
+                                        "Don't use for commercial ads or branding.",
+                                        "Don't use on private vehicles without permission.",
+                                        "Don't discard paper flags on ground/dustbins."
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-stone-700 text-sm">
+                                            <span className="text-red-500 mt-1">✗</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* 4. What counts as disrespect */}
+                    <section className="bg-orange-50 border border-orange-100 rounded-2xl p-8">
+                        <h3 className="text-xl font-bold text-orange-900 mb-4 flex items-center gap-2">
+                            <AlertTriangle className="text-orange-600" />
+                            What counts as disrespect?
+                        </h3>
+                        <p className="text-orange-800 text-sm mb-4">The <strong>Prevention of Insults to National Honour Act, 1971</strong> makes these actions illegal:</p>
+                        <ul className="grid md:grid-cols-2 gap-4">
+                            {[
+                                "Intentionally burning, tearing, or trampling the flag in public.",
+                                "Using the flag to insult or mock the nation.",
+                                "Desecrating the flag with hate speech.",
+                                "Displaying the flag to deliberately reduce its dignity."
+                            ].map((item, i) => (
+                                <li key={i} className="flex gap-2 items-start text-orange-900/80 text-sm">
+                                    <span className="mt-1.5 w-1.5 h-1.5 bg-orange-400 rounded-full shrink-0"></span>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    {/* 5. Disposal */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                            <span className="bg-stone-200 text-stone-700 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                            How to dispose of a damaged flag
+                        </h3>
+                        <p className="text-stone-600 mb-6">Dispose only when ripped, soiled, faded, or unfit for display.</p>
+
+                        <div className="grid md:grid-cols-2 gap-6 mb-8">
+                            <div className="group hover:bg-stone-50 transition-colors p-6 rounded-2xl border border-stone-200">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 text-orange-600">
+                                    <Flame size={24} />
+                                </div>
+                                <h4 className="font-bold text-lg text-stone-900 mb-2">Method 1: Respectful Burning</h4>
+                                <p className="text-xs font-bold text-stone-500 uppercase tracking-wider mb-4">Preferred Method</p>
+                                <ol className="space-y-2 text-sm text-stone-600 list-decimal ml-4">
+                                    <li>Fold the damaged flag neatly.</li>
+                                    <li>Choose a private, clean, secure location.</li>
+                                    <li>Build a fire (don't start it with the flag).</li>
+                                    <li>Place folded flag in center of flames.</li>
+                                    <li>Observe silence/respect while it burns completely.</li>
+                                </ol>
+                            </div>
+
+                            <div className="group hover:bg-stone-50 transition-colors p-6 rounded-2xl border border-stone-200">
+                                <div className="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mb-4 text-stone-600">
+                                    <Shovel size={24} />
+                                </div>
+                                <h4 className="font-bold text-lg text-stone-900 mb-2">Method 2: Respectful Burial</h4>
+                                <p className="text-xs font-bold text-stone-500 uppercase tracking-wider mb-4">Alternative Method</p>
+                                <ol className="space-y-2 text-sm text-stone-600 list-decimal ml-4">
+                                    <li>Fold the damaged flag neatly.</li>
+                                    <li>Place in a clean wooden box or cloth container.</li>
+                                    <li>Select a clean, private location.</li>
+                                    <li>Bury the box containing the flag.</li>
+                                    <li>Maintain respect and silence.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div className="bg-red-50 border border-red-100 rounded-xl p-5">
+                            <h4 className="font-bold text-red-800 mb-2 flex items-center gap-2 text-sm"><X size={16} /> What NOT to do</h4>
+                            <p className="text-sm text-red-700/80">Never throw in dustbins/trash. Never leave on streets or playgrounds. Never tear into pieces before disposal (burn/bury as a whole).</p>
+                        </div>
+                    </section>
+
+                    {/* 6. FAQs */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-8">Frequently Asked Questions</h3>
+                        <div className="grid gap-3">
+                            {FAQS.map((faq, index) => (
+                                <div key={index} className={`border border-stone-200 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'bg-stone-50 ring-1 ring-stone-200' : 'bg-white hover:border-stone-300'}`}>
+                                    <button onClick={() => toggleFAQ(index)} className="w-full flex items-center justify-between p-4 text-left focus:outline-none">
+                                        <span className={`font-semibold text-sm md:text-base ${openIndex === index ? 'text-blue-700' : 'text-stone-800'}`}>{faq.question}</span>
+                                        {openIndex === index ? <ChevronUp className="text-blue-600 shrink-0 ml-4" size={18} /> : <ChevronDown className="text-stone-400 shrink-0 ml-4" size={18} />}
+                                    </button>
+                                    <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className="p-4 pt-0 text-stone-600 text-sm leading-relaxed border-t border-stone-200/50 mt-1">
+                                            {faq.answer}
+                                            <div className="mt-2 text-xs text-stone-400 flex items-center gap-1">
+                                                Source: <a href={faq.link} target="_blank" rel="noreferrer" className="hover:text-blue-600 hover:underline">{faq.source}</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* 7. Participation */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6">How Schools Can Participate</h3>
+                        <div className="bg-[#1c1917] rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                            {/* Watermark subtle effect */}
+                            <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none">
+                                <span className="text-[120px] font-bold text-white leading-none tracking-tighter">m</span>
                             </div>
-                        ))}
-                    </div>
-                </div>
 
-                {/* Source & Credit */}
-                <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center text-blue-900/80 text-sm leading-relaxed">
-                    <p className="font-bold mb-1">Source & Credit:</p>
-                    <p>Flag Code of India – Ministry of Home Affairs (MHA), Government of India</p>
-                    <p className="opacity-75">(Content simplified for public awareness and educational purposes)</p>
-                </div>
+                            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 relative z-10">
+                                <div className="flex gap-4 items-start">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span className="text-white font-bold text-sm">1</span>
+                                    </div>
+                                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                        <strong className="text-white">Hoist the Flag</strong> on a dedicated flagpole with ceremony.
+                                    </p>
+                                </div>
 
+                                <div className="flex gap-4 items-start">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span className="text-white font-bold text-sm">4</span>
+                                    </div>
+                                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                        <strong className="text-white">Collect Damaged Flags</strong> after events for respectful disposal.
+                                    </p>
+                                </div>
+
+                                <div className="flex gap-4 items-start">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span className="text-white font-bold text-sm">2</span>
+                                    </div>
+                                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                        <strong className="text-white">Teach Students</strong> the Flag Code and etiquette.
+                                    </p>
+                                </div>
+
+                                <div className="flex gap-4 items-start">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span className="text-white font-bold text-sm">5</span>
+                                    </div>
+                                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                        <strong className="text-white">Organise Awareness</strong> sessions for students and parents.
+                                    </p>
+                                </div>
+
+                                <div className="flex gap-4 items-start">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span className="text-white font-bold text-sm">3</span>
+                                    </div>
+                                    <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                        <strong className="text-white">Create Pledge Posters</strong> using this tool.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* 8. Official References */}
+                    <section>
+                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b border-stone-200 pb-4">Official References</h3>
+                        <div className="grid gap-4 md:grid-cols-2">
+                            {REFERENCES.map((ref, i) => (
+                                <a key={i} href={ref.link} target="_blank" rel="noreferrer" className="group block p-5 rounded-xl border border-stone-200 hover:border-blue-300 hover:shadow-sm transition-all bg-white">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-stone-100 text-stone-500 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                                            {ref.source}
+                                        </span>
+                                        <ExternalLink size={14} className="text-stone-300 group-hover:text-blue-400" />
+                                    </div>
+                                    <h4 className="font-bold text-stone-900 group-hover:text-blue-700 transition-colors mb-1 leading-tight">{ref.title}</h4>
+                                    <p className="text-xs text-stone-500 line-clamp-2">{ref.desc}</p>
+                                </a>
+                            ))}
+                        </div>
+                    </section>
+
+                </div>
             </div>
         </section>
     );
