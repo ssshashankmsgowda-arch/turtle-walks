@@ -234,7 +234,6 @@ const App: React.FC = () => {
               onBack={() => goToStep(Step.Home)}
               onContinue={handleFormSubmit}
             />
-            <FlagCode />
           </>
         )}
 
