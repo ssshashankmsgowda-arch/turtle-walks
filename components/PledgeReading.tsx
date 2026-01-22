@@ -64,29 +64,6 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
 
         <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 pb-40">
 
-          {/* Key Points - Do's and Don'ts */}
-          <div className="grid grid-cols-1 gap-4">
-            <section className="bg-indiaGreen/5 p-4 rounded-xl border border-indiaGreen/10">
-              <h3 className="font-display font-bold text-lg text-indiaGreen mb-2 flex items-center gap-2">
-                ✅ Do's
-              </h3>
-              <ul className="space-y-1.5 text-xs md:text-sm text-body">
-                <li className="flex gap-2"><span className="text-indiaGreen font-bold">✓</span> Treat the Flag with dignity.</li>
-                <li className="flex gap-2"><span className="text-indiaGreen font-bold">✓</span> Saffron band always at top.</li>
-              </ul>
-            </section>
-
-            <section className="bg-danger/5 p-4 rounded-xl border border-danger/10">
-              <h3 className="font-display font-bold text-lg text-danger mb-2 flex items-center gap-2">
-                ❌ Don'ts
-              </h3>
-              <ul className="space-y-1.5 text-xs md:text-sm text-body">
-                <li className="flex gap-2"><span className="text-danger font-bold">×</span> Never let flag touch ground.</li>
-                <li className="flex gap-2"><span className="text-danger font-bold">×</span> Don't use as costume/drapery.</li>
-              </ul>
-            </section>
-          </div>
-
           {/* The Pledge Points */}
           <section className="space-y-4">
             <div className="flex items-center justify-between mb-2">
