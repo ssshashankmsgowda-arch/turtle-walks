@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+  <!-- Page Title -->
+  <title>Flag Pledge Initiative | Take the Pledge for Our National Flag 🇮🇳</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Take the pledge to respect and honour the National Flag of India. A Communitree initiative to promote dignity and awareness for the Tricolor. Generate your personalized pledge certificate." />
+  <meta name="keywords"
+    content="flag pledge, national flag, India, tricolor, pledge certificate, Communitree, Republic Day, Independence Day, tiranga" />
+  <meta name="author" content="Communitree" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Flag Pledge Initiative | Take the Pledge 🇮🇳" />
+  <meta property="og:description"
+    content="Take the pledge to respect and honour the National Flag of India. Generate your personalized pledge certificate." />
+  <meta property="og:site_name" content="Flag Pledge Initiative" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flag Pledge Initiative | Take the Pledge 🇮🇳" />
+  <meta name="twitter:description" content="Take the pledge to respect and honour the National Flag of India." />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#FF9933" />
+  <meta name="msapplication-TileColor" content="#138808" />
+
+  <!-- Favicon (using emoji as data URI for simplicity) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇮🇳</text></svg>" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#FF9933',
+            indiaGreen: '#138808',
+            indiaNavy: '#000080',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            poster: ['Big Shoulders Display', 'sans-serif'],
+          },
+          animation: {
+            blob: "blob 7s infinite",
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+          },
+          keyframes: {
+            blob: {
+              "0%": {
+                transform: "translate(0px, 0px) scale(1)",
+              },
+              "33%": {
+                transform: "translate(30px, -50px) scale(1.1)",
+              },
+              "66%": {
+                transform: "translate(-20px, 20px) scale(0.9)",
+              },
+              "100%": {
+                transform: "translate(0px, 0px) scale(1)",
+              },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;700;900&family=Inria+Serif:wght@400;700&family=Montserrat:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Cropper.js -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <style>
+    /* Hide scrollbar for cleaner UI in modals */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Cropper Customization for Round Preview (Visual only) */
+    .cropper-view-box,
+    .cropper-face {
+      border-radius: 50%;
+    }
+
+    /* Ensure the image fills the crop box nicely */
+    .cropper-view-box {
+      outline: 0;
+      box-shadow: 0 0 0 1px #39f;
+    }
+  </style>
+
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

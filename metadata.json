@@ -1,0 +1,7 @@
+{
+  "name": "Flag Pledge Initiative",
+  "description": "A personalized certificate generator for the Indian National Flag Pledge.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
