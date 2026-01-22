@@ -128,7 +128,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
         <h1 className="text-3xl font-display font-bold text-indiaNavy mb-2">Pledge Taken! 🇮🇳</h1>
         <p className="text-stone-500 mb-8">
           Thank you, <span className="font-bold text-stone-800">{userData.fullName}</span>.<br />
-          You have successfully pledged to honor the Tricolor.
+          You have successfully pledged to honor the Flag.
         </p>
 
         {/* Visible Preview Area */}
@@ -171,9 +171,9 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
 
           <button
             onClick={onReset}
-            className="w-full py-3 text-stone-400 font-semibold text-sm hover:text-stone-600 flex items-center justify-center gap-2 mt-4"
+            className="w-full py-3 bg-white border-2 border-indiaNavy text-indiaNavy font-bold text-sm hover:bg-indiaNavy hover:text-white flex items-center justify-center gap-2 mt-4 rounded-xl transition-all"
           >
-            <RefreshCw size={14} /> CREATE ANOTHER PLEDGE
+            <RefreshCw size={16} /> RETURN HOME
           </button>
         </div>
 
