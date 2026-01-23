@@ -252,19 +252,19 @@ export const FlagCode: React.FC = () => {
                         </div>
                     </section>
 
-                    {/* 5. What counts as disrespect */}
+                    {/* 5. Legal Warning */}
                     <section className="bg-orange-50/50 border border-saffron/10 rounded-2xl p-8">
                         <h3 className="text-xl font-bold text-indiaNavy mb-4 flex items-center gap-2">
                             <AlertTriangle className="text-saffron" />
-                            What counts as disrespect?
+                            Legal Warning
                         </h3>
-                        <p className="text-orange-800 text-sm mb-4">The <strong>Prevention of Insults to National Honour Act, 1971</strong> makes these actions illegal:</p>
+                        <p className="text-orange-800 text-sm mb-4">Disrespecting the National Flag is a punishable offence by law. Please ensure:</p>
                         <ul className="grid md:grid-cols-2 gap-4">
                             {[
-                                "Intentionally burning, tearing, or trampling the flag in public.",
-                                "Using the flag to insult or mock the nation.",
-                                "Desecrating the flag with hate speech.",
-                                "Displaying the flag to deliberately reduce its dignity."
+                                "Do not burn, crush, or damage the flag.",
+                                "Do not use the flag to insult the nation.",
+                                "Do not show disrespect in word or action.",
+                                "Do not display the flag in an undignified manner."
                             ].map((item, i) => (
                                 <li key={i} className="flex gap-2 items-start text-orange-950 text-sm">
                                     <span className="mt-1.5 w-1.5 h-1.5 bg-orange-400 rounded-full shrink-0"></span>
