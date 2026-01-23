@@ -84,9 +84,9 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                             onClick={() => handleSelectSchool(school)}
                             className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-6 cursor-pointer group hover:-translate-y-1"
                         >
-                            <div className="relative w-full h-32 rounded-lg bg-saffron/5 flex items-center justify-center mb-4 overflow-hidden group-hover:bg-saffron/10 transition-colors">
+                            <div className="relative w-full h-40 rounded-lg bg-saffron/5 flex items-center justify-center mb-4 overflow-hidden group-hover:bg-saffron/10 transition-colors">
                                 {school.logoUrl ? (
-                                    <img src={school.logoUrl} alt={school.name} className="w-full h-full object-contain p-4" />
+                                    <img src={school.logoUrl} alt={school.name} className="w-full h-full object-contain p-1" />
                                 ) : (
                                     <span className="text-4xl">{school.icon}</span>
                                 )}
