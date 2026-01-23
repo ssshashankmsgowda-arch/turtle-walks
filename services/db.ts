@@ -14,11 +14,12 @@ const BACKEND_API_URL: string = "";
 const INITIAL_SCHOOLS: School[] = [
     {
         id: 'citizen',
-        name: "Citizens of India",
+        name: "My Pledge for India",
         location: "National",
         subLocation: "General Public",
         icon: "🇮🇳",
-        logoUrl: "/assets/ezone.png",
+        logoUrl: "", // Empty in UI
+        posterLogoUrl: "/assets/ezone.png", // Visible in Poster
         isActive: true,
         isFeatured: true,
         templateId: 'tricolor'

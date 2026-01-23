@@ -31,7 +31,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
       />
 
       {/* Layer 1.5: School Logo */}
-      {school && (school.logoUrl || school.icon) && (
+      {school && (school.posterLogoUrl || school.logoUrl || school.icon) && (
         <div
           className="absolute z-20 flex items-center justify-center p-1"
           style={{
@@ -41,8 +41,8 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
             height: school.logoPosition?.height || '5.94%'
           }}
         >
-          {school.logoUrl ? (
-            <img src={school.logoUrl} alt={school.name} className="w-full h-full object-contain" />
+          {school.posterLogoUrl || school.logoUrl ? (
+            <img src={school.posterLogoUrl || school.logoUrl} alt={school.name} className="w-full h-full object-contain" />
           ) : (
             <span className="text-4xl filter drop-shadow-md">{school.icon}</span>
           )}
