@@ -124,11 +124,17 @@ export const DB = {
         // ========================================
         if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.startsWith('http')) {
             try {
+                // Add Auth Token for Security
+                const payload = {
+                    ...newSubmission,
+                    auth_token: import.meta.env.VITE_API_TOKEN || ''
+                };
+
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors', // Required for Google Apps Script
                     headers: { 'Content-Type': 'text/plain' }, // Using text/plain ensures e.postData.contents is populated without CORS preflight issues
-                    body: JSON.stringify(newSubmission)
+                    body: JSON.stringify(payload)
                 });
                 console.log("✅ Sent to Google Sheets");
             } catch (error) {

@@ -1,30 +1,76 @@
+// =============================================================
+// SECURE GOOGLE APPS SCRIPT BACKEND
+// =============================================================
+
+/**
+ * Validates the authentication token
+ * Note: You must set the SCRIPT PROPERTY 'API_TOKEN' in File > Project Properties > Script Properties
+ */
+function isValidToken(token) {
+    // 1. Get the secret token from Script Properties
+    var secret = PropertiesService.getScriptProperties().getProperty('API_TOKEN');
+
+    // 2. If no secret is set, we FAIL OPEN for development (warn user)
+    //    In production, this should return false.
+    if (!secret) return true;
+
+    // 3. Compare tokens
+    return token === secret;
+}
+
+/**
+ * Sanitizes input to prevent CSV Injection / Formula Injection
+ * Prepends a single quote to force text interpretation
+ */
+function sanitize(input) {
+    if (input === null || input === undefined) return '';
+    var str = input.toString();
+    // If it starts with =, +, -, @ (formula triggers), prepend '
+    if (/^[\=\+\-\@]/.test(str)) {
+        return "'" + str;
+    }
+    return str;
+}
+
 function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
     try {
         // -------------------------------------------------------------
-        // CRITICAL: Parse the text/plain payload manually
+        // 1. PARSE PAYLOAD
         // -------------------------------------------------------------
+        if (!e.postData || !e.postData.contents) {
+            throw new Error("Missing payload");
+        }
         var jsonString = e.postData.contents;
         var data = JSON.parse(jsonString);
 
         // -------------------------------------------------------------
-        // MAP DATA TO COLUMNS
+        // 2. SECURITY CHECK: AUTHENTICATION
+        // -------------------------------------------------------------
+        // The frontend should send { ..., "auth_token": "..." }
+        if (!isValidToken(data.auth_token)) {
+             return ContentService.createTextOutput(JSON.stringify({ result: 'error', error: 'Unauthorized' }))
+                .setMimeType(ContentService.MimeType.JSON);
+        }
+
+        // -------------------------------------------------------------
+        // 3. MAP DATA TO COLUMNS & SANITIZE
         // -------------------------------------------------------------
         var row = [
-            data.id,                  // Col 1: ID
-            data.schoolName,          // Col 2: School Name
-            data.studentName,         // Col 3: Student Name
-            data.grade,               // Col 4: Class
-            data.section,             // Col 5: Section
-            data.phone,               // Col 6: Phone
-            data.email,               // Col 7: Email
-            data.timestamp,           // Col 8: Date/Time
-            data.optIn ? 'Yes' : 'No' // Col 9: Opt-In (Handling boolean)
+            sanitize(data.id),                  // Col 1: ID
+            sanitize(data.schoolName),          // Col 2: School Name
+            sanitize(data.studentName),         // Col 3: Student Name
+            sanitize(data.grade),               // Col 4: Class
+            sanitize(data.section),             // Col 5: Section
+            sanitize(data.phone),               // Col 6: Phone
+            sanitize(data.email),               // Col 7: Email
+            sanitize(data.timestamp),           // Col 8: Date/Time
+            data.optIn ? 'Yes' : 'No'           // Col 9: Opt-In (Boolean doesn't need sanitization)
         ];
 
         // -------------------------------------------------------------
-        // SAVE TO SHEET
+        // 4. SAVE TO SHEET
         // -------------------------------------------------------------
         sheet.appendRow(row);
 

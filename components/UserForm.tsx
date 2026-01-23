@@ -163,20 +163,19 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
   // --- Form Validation ---
 
   const isFormValid = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10,12}$/;
+
     return (
       userData.fullName.trim().length > 2 &&
-      userData.email.trim().includes('@') &&
-      userData.phone.trim().length >= 10
+      emailRegex.test(userData.email.trim()) &&
+      phoneRegex.test(userData.phone.trim())
       // && userData.photo !== ''
     );
   };
 
   const handleContinue = async () => {
     if (isFormValid()) {
-      console.log('📝 Form Continue Clicked');
-      console.log('👤 User Data:', userData);
-      console.log('🏫 Selected School:', selectedSchool);
-
       // Just proceed to next step
       // Data submission happens in Success component via useEffect
       try {

@@ -15,8 +15,6 @@ export const saveUserData = async (userData: UserData): Promise<boolean> => {
       photoStatus: userData.photo ? 'Uploaded' : 'None'
     };
 
-    console.log('Sending data to backend:', payload);
-
     // Send data to Google Sheets via Google Apps Script
     await fetch(SCRIPT_URL, {
       method: 'POST',
