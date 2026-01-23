@@ -239,7 +239,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               </div>
             )}
             <h2 className="text-4xl font-display font-bold text-indiaNavy">
-              Enter {selectedSchool ? 'Student' : 'Your'} Details
+              {selectedSchool?.id === 'citizen' ? 'Enter Details' : `Enter ${selectedSchool ? 'Student' : 'Your'} Details`}
             </h2>
           </div>
 
