@@ -29,13 +29,15 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
   const [cropper, setCropper] = useState<any>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
 
+  const submittingLock = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // --- Photo Input Handlers ---
   // ... (Lines 33-172 remain unchanged, we skip to handleContinue)
 
   const handleContinue = async () => {
-    if (isFormValid() && !isSubmitting) {
+    if (isFormValid() && !isSubmitting && !submittingLock.current) {
+      submittingLock.current = true;
       setIsSubmitting(true);
       console.log('📝 Form Submission Initiated');
       console.log('👤 User Data:', userData);
@@ -66,6 +68,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
         // Continue anyway for offline UX, or show error
         onContinue();
       } finally {
+        submittingLock.current = false;
         setIsSubmitting(false);
       }
     } else if (!isFormValid()) {
