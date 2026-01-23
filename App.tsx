@@ -61,7 +61,7 @@ const App: React.FC = () => {
       if (school) {
         console.log(`📍 Direct link: Navigating to ${school.name}`);
         setSelectedSchool(school);
-        setTimeout(() => setCurrentStep(Step.UserForm), 100);
+        setTimeout(() => setCurrentStep(Step.Form), 100);
       }
     }
   }, [setSelectedSchool]);
