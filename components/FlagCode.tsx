@@ -16,6 +16,11 @@ const FAQS = [
         link: "https://vajiramandravi.com/current-affairs/flag-code-of-india-2002/"
     },
 
+    {
+        question: "Can students take photos with the flag?",
+        answer: "Yes, as long as the flag is displayed respectfully and the photos do not mock or insult the flag.",
+        source: "thestatesman",
+        link: "https://www.thestatesman.com/india/independence-day-2025-tricolour-rules-dos-and-donts-every-indian-must-know-1503470781.html"
     }
 ];
 
