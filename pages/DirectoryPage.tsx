@@ -48,7 +48,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({ onBack, onSelect }
                         ← Back to Home
                     </button>
                     {/* <h1 className="text-3xl font-bold text-indiaNavy">School Directory</h1> */}
-                    <p className="mt-2 text-gray-600">Find your school to access your custom pledge portal.</p>
+                    <p className="mt-2 text-gray-600">Find your institution to participate in the pledge.</p>
                 </div>
 
                 {/* Search & Filter Bar */}
