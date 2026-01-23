@@ -11,7 +11,6 @@ import { PledgeReading } from './components/PledgeReading';
 import { Success } from './components/Success';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { UserData, Step } from './types';
-import { saveUserData } from './services/dataStore';
 import { DB } from './services/db';
 import { useApp } from './context/AppContext';
 
@@ -98,7 +97,7 @@ const App: React.FC = () => {
 
   const handlePledgeConfirm = async () => {
     setIsTransitioning(true);
-    await saveUserData(userData);
+    // Data is submitted in the Success component via DB.submitForm
     runAfterPaint(() => {
       setCurrentStep(Step.Success);
       window.scrollTo(0, 0);
