@@ -152,16 +152,19 @@ const App: React.FC = () => {
                         }`} />
 
                       <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-6">
-                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/50 transition-transform duration-300 group-hover:scale-110 ${index === 0 ? 'bg-saffron/5 text-saffron' :
-                            index === 1 ? 'bg-indiaNavy/5 text-indiaNavy' :
-                              'bg-indiaGreen/5 text-indiaGreen'
-                            }`}>
-                            {school.logoUrl ? <img src={school.logoUrl} className="w-full h-full object-contain p-3" /> : school.icon}
-                          </div>
+                        {/* Large Rectangular Logo Container */}
+                        <div className={`relative w-full h-40 rounded-xl mb-6 flex items-center justify-center overflow-hidden border border-stone-100 transition-colors duration-300 group-hover:border-transparent ${index === 0 ? 'bg-saffron/5' :
+                          index === 1 ? 'bg-indiaNavy/5' :
+                            'bg-indiaGreen/5'
+                          }`}>
+                          {school.logoUrl ? (
+                            <img src={school.logoUrl} className="w-full h-full object-contain p-4" alt={school.name} />
+                          ) : (
+                            <span className="text-5xl">{school.icon}</span>
+                          )}
 
-                          {/* Verified Badge */}
-                          <div className="text-blue-500 bg-blue-50 p-1 rounded-full">
+                          {/* Verified Badge - Inside container */}
+                          <div className="absolute top-3 right-3 text-blue-500 bg-white p-1 rounded-full shadow-sm">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
                           </div>
                         </div>
