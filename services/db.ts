@@ -24,39 +24,7 @@ const INITIAL_SCHOOLS: School[] = [
         isFeatured: true,
         templateId: 'tricolor'
     },
-    {
-        id: '1',
-        name: "Delhi Public School",
-        location: "New Delhi",
-        subLocation: "R.K. Puram",
-        icon: "🏛️",
-        logoUrl: "/assets/dps_logo.jpeg",
-        isActive: true,
-        isFeatured: false,
-        templateId: 'tricolor'
-    },
-    {
-        id: '2',
-        name: "Kendriya Vidyalaya",
-        location: "Bangalore",
-        subLocation: "Hebbal",
-        icon: "🏫",
-        logoUrl: "/assets/kv_logo.png",
-        isActive: true,
-        isFeatured: false,
-        templateId: 'tricolor'
-    },
-    {
-        id: '3',
-        name: "National Public School",
-        location: "Indiranagar",
-        subLocation: "Bangalore",
-        icon: "🎓",
-        logoUrl: "/assets/nps_logo.jpeg",
-        isActive: true,
-        isFeatured: false,
-        templateId: 'tricolor'
-    },
+
     {
         id: '4',
         name: "Vaels International School",
