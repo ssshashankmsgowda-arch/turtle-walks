@@ -63,9 +63,11 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
       clone.style.left = '-10000px';
       clone.style.width = '800px';    // Standardized Width
 
-      // Calculate height based on aspect ratio (1080/1600)
-      // 800 * (1600 / 1080) ~= 1185.18
-      clone.style.height = `${(800 * 1600) / 1080}px`;
+      // Calculate height based on aspect ratio
+      // Public: 1080x1300 | School: 1080x1600
+      const isPublic = selectedSchool?.id === 'citizen';
+      const aspectRatio = isPublic ? (1300 / 1080) : (1600 / 1080);
+      clone.style.height = `${800 * aspectRatio}px`;
       clone.style.transform = 'none'; // Remove any CSS scaling
       clone.style.margin = '0';
       clone.style.boxShadow = 'none';
@@ -87,9 +89,11 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
         // Fix positioning: Move to center and slightly up (57%) as per user request
         const nameContainer = nameElement.parentElement;
         if (nameContainer) {
-          nameContainer.style.width = '100%';
-          nameContainer.style.left = '0';
-          nameContainer.style.top = '59%'; // Adjusted down to 59% based on user feedback
+          // We no longer manually override position here.
+          // Poster.tsx now handles specific layouts (Public vs School) correctly.
+          // nameContainer.style.width = '100%';
+          // nameContainer.style.left = '0';
+          // nameContainer.style.top = '59%'; 
         }
       }
 

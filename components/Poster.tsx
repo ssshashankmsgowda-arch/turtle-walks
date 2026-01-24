@@ -98,7 +98,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
           // Public Poster Name - FORCE CENTER ALIGNMENT
           // Using standard centering technique instead of bounding box to ensure perfect center
           left: '50%',
-          top: '65.25%',
+          top: '63.75%', // Moved up 1.5% from 65.25%
           width: 'auto',
           minWidth: '60%', // Ensure enough space
           transform: 'translateX(-50%)', // Pivot precisely on center
@@ -106,7 +106,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
         } : {
           // Standard School Poster Coordinates (1080x1600) - FORCE CENTER ALIGNMENT
           left: '50%',
-          top: '61.29%',
+          top: '59%', // Moved down to 59%
           width: 'auto',
           minWidth: '60%',
           transform: 'translateX(-50%)',
@@ -120,9 +120,10 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
             fontWeight: 550,
             whiteSpace: 'nowrap',
             // Public poster (1080x1300) gets smaller fonts than School poster (1080x1600)
+            // UPDATE: Reducing School font sizes as well per user request
             fontSize: isPublic
-              ? ((userData.fullName || 'Ram Kumar').length > 20 ? '14px' : (userData.fullName || 'Ram Kumar').length > 13 ? '18px' : '24px')
-              : ((userData.fullName || 'Ram Kumar').length > 20 ? '18px' : (userData.fullName || 'Ram Kumar').length > 13 ? '24px' : '30px')
+              ? ((userData.fullName || 'Ram Kumar').length > 20 ? '12px' : (userData.fullName || 'Ram Kumar').length > 13 ? '16px' : '22px')
+              : ((userData.fullName || 'Ram Kumar').length > 20 ? '14px' : (userData.fullName || 'Ram Kumar').length > 13 ? '20px' : '24px')
           }}
         >
           {userData.fullName || 'Ram Kumar'}
