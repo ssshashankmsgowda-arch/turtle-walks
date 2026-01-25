@@ -41,7 +41,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
       {/* Layer 1.5: School Logo - Hide for Public as they have a custom background */}
       {school && !isPublic && (school.posterLogoUrl || school.logoUrl || school.icon) && (
         <div
-          className="absolute z-20 flex items-center justify-center p-1"
+          className="absolute z-20"
           style={{
             left: school.logoPosition?.left || '23.95%',
             top: school.logoPosition?.top || '85.29%',
@@ -50,9 +50,13 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
           }}
         >
           {school.posterLogoUrl || school.logoUrl ? (
-            <img src={school.posterLogoUrl || school.logoUrl} alt={school.name} className="w-full h-full object-contain" />
+            <img
+              src={school.posterLogoUrl || school.logoUrl}
+              alt={school.name}
+              className={`w-full ${school.logoPosition?.height === 'auto' ? 'h-auto' : 'h-full'} object-contain block`}
+            />
           ) : (
-            <span className="text-4xl filter drop-shadow-md">{school.icon}</span>
+            <span className="text-4xl filter drop-shadow-md flex items-center justify-center w-full h-full">{school.icon}</span>
           )}
         </div>
       )}

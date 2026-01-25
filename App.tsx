@@ -137,7 +137,7 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-end mb-10">
                   <div>
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-indiaNavy border-b-4 border-indiaGreen inline-block pb-2">
-                      Partner<br />Institutions
+                      Partner<br />Organisations
                     </h2>
                   </div>
                   <button

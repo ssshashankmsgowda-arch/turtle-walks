@@ -225,7 +225,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               </div>
             )}
             <h2 className="text-4xl font-display font-bold text-indiaNavy">
-              {selectedSchool?.id === 'citizen' ? 'Enter Details' : `Enter ${selectedSchool ? 'Student' : 'Your'} Details`}
+              {['citizen', 'zimson'].includes(selectedSchool?.id || '') ? 'Enter Details' : `Enter ${selectedSchool ? 'Student' : 'Your'} Details`}
             </h2>
           </div>
 
@@ -296,7 +296,10 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 <input
                   type="text"
                   value={userData.fullName}
-                  onChange={(e) => setUserData({ ...userData, fullName: e.target.value })}
+                  onChange={(e) => {
+                    const formatted = e.target.value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+                    setUserData({ ...userData, fullName: formatted });
+                  }}
                   placeholder="Ram Kumar"
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all"
                 />
@@ -382,7 +385,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 </div>
               </div>
               <label htmlFor="privacyConsent" className="text-sm text-slate-600 cursor-pointer select-none leading-tight">
-                I agree to receive information about similar civic initiatives in the future.
+                I agree to receive information about similar initiatives in the future.
               </label>
             </div>
 

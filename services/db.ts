@@ -41,6 +41,24 @@ const INITIAL_SCHOOLS: School[] = [
             width: "28.00%",
             height: "5.40%"
         }
+    },
+    {
+        id: 'zimson',
+        name: "Zimson Watches",
+        location: "Chennai",
+        subLocation: "Zimson Watches",
+        icon: "⌚",
+        logoUrl: "/assets/zimson.png",
+        posterLogoUrl: "/assets/zimson.png",
+        isActive: true,
+        isFeatured: true,
+        templateId: 'tricolor',
+        logoPosition: {
+            left: "27.5%",
+            top: "85%",
+            width: "16.50%",
+            height: "auto"
+        }
     }
 ];
 
