@@ -151,7 +151,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
           await navigator.share({
             files: [file],
             title: 'My Flag Pledge',
-            text: `I’ve taken the pledge to respect and honour our National Flag.\nI invite you to take the pledge here:\nhttps://indiaflagpledge.vercel.app/\n\n#MyFlagPledge`,
+            text: `I’ve taken the pledge to respect and honour our National Flag.\nI invite you to take the pledge here:\nhttps://myindiaflagpledge.vercel.app/\n\n#MyFlagPledge`,
           });
         } catch (error) {
           console.log('Share aborted', error);
