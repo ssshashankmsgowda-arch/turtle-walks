@@ -168,7 +168,7 @@ const INITIAL_SCHOOLS: School[] = [
             height: "auto"
         }
     }
-];
+]; // Modern Medical Technologies added
 
 const STORAGE_KEYS = {
     SCHOOLS: 'communitree_schools',
