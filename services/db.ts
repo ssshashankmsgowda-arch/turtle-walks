@@ -37,7 +37,7 @@ const INITIAL_SCHOOLS: School[] = [
         templateId: 'tricolor',
         logoPosition: {
             left: "16.41%",
-            top: "83.00%",
+            top: "85.55%",
             width: "28.00%",
             height: "5.40%"
         }
@@ -151,7 +151,7 @@ const INITIAL_SCHOOLS: School[] = [
         }
     },
     {
-        id: 'vel-communications',
+        id: '99',
         name: "VEL Communications",
         location: "Chennai",
         subLocation: "Pallavaram",
@@ -163,7 +163,7 @@ const INITIAL_SCHOOLS: School[] = [
         templateId: 'tricolor',
         logoPosition: {
             left: "32.00%",
-            top: "88.50%",
+            top: "79.00%",
             width: "14.00%",
             height: "auto"
         }
@@ -311,7 +311,7 @@ const INITIAL_SCHOOLS: School[] = [
         templateId: 'tricolor',
         logoPosition: {
             left: "32.00%",
-            top: "85.00%",
+            top: "79.00%",
             width: "12.00%",
             height: "auto"
         }
