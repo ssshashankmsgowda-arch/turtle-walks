@@ -150,6 +150,24 @@ const INITIAL_SCHOOLS: School[] = [
             height: "auto"
         }
     },
+    {
+        id: 'vel-communications',
+        name: "VEL Communications",
+        location: "Chennai",
+        subLocation: "Pallavaram",
+        icon: "📡",
+        logoUrl: "/assets/vel.png",
+        posterLogoUrl: "/assets/vel.png",
+        isActive: true,
+        isFeatured: true,
+        templateId: 'tricolor',
+        logoPosition: {
+            left: "33.00%",
+            top: "85.73%",
+            width: "12.00%",
+            height: "auto"
+        }
+    },
 
     {
         id: '1',
@@ -262,6 +280,24 @@ const INITIAL_SCHOOLS: School[] = [
     },
 
 
+    {
+        id: 'living-collective',
+        name: "Living Collective",
+        location: "Bangalore",
+        subLocation: "",
+        icon: "🏢",
+        logoUrl: "/assets/living.png",
+        posterLogoUrl: "/assets/living.png",
+        isActive: true,
+        isFeatured: true,
+        templateId: 'tricolor',
+        logoPosition: {
+            left: "28.00%",
+            top: "85.73%",
+            width: "18.00%",
+            height: "auto"
+        }
+    },
 ]; // Patrician College added
 
 const STORAGE_KEYS = {
