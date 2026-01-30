@@ -31,7 +31,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
         section: userData.section,
         phone: `${userData.countryCode} ${userData.phone}`,
         email: userData.email,
-        message: 'I Pledge to honor the National Flag',
+        message: 'I Pledge to protect marine life',
         photoUrl: userData.photo,
         optIn: userData.optInSimilarEvents
       };

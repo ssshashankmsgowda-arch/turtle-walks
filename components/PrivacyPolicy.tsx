@@ -56,7 +56,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
                             We only collect personal information that you voluntarily provide through the website form:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 text-sm bg-stone-50 p-4 rounded-lg border border-stone-100">
-                            <li><strong>Name</strong> – used to personalise your flag pledge certificate.</li>
+                            <li><strong>Name</strong> – used to personalise your turtle pledge certificate.</li>
                             <li><strong>Email address</strong> – used to send your certificate and, if you opt in, related updates.</li>
                             <li><strong>Phone number</strong> – used only if you opt in to receive communication (e.g., messages) about similar initiatives.</li>
                         </ul>
@@ -90,7 +90,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
                             We use your personal information strictly for the following purposes:
                         </p>
                         <ul className="list-disc pl-5 space-y-1 text-sm">
-                            <li>To generate and provide your personalised flag pledge certificate.</li>
+                            <li>To generate and provide your personalised turtle pledge certificate.</li>
                             <li>To send you information about similar campaigns, events, or civic initiatives only if you have expressly opted in to receive such communications.</li>
                         </ul>
                         <p className="text-sm leading-relaxed">

@@ -350,7 +350,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
 
             {/* Error Message */}
             {error && (
-              <div className="bg-red-50 text-red-600 text-sm p-4 rounded-xl flex items-center gap-2 animate-pulse">
+              <div className="bg-red-50 text-red-600 text-sm p-4 rounded-xl flex items-center gap-2 animate-pulse mb-6">
                 <X size={16} /> {error}
               </div>
             )}
