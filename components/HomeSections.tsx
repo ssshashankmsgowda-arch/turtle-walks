@@ -75,20 +75,47 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({ onJoin, onInitiative
                 <div className="bg-white dark:bg-surface-dark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 hover:border-secondary/30 hover:shadow-md transition-all group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <div className="bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border border-rose-100 dark:border-rose-900/30">Weekend Special</div>
-                      <span className="text-gray-400 text-xs flex items-center font-medium"><span className="material-icons-round text-[14px] mr-1 text-gray-300">location_on</span> Marina Beach</span>
+                      <div className="bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border border-rose-100 dark:border-rose-900/30">Upcoming Walk</div>
+                      <span className="text-gray-400 text-xs flex items-center font-medium">
+                        <span className="material-icons-round text-[14px] mr-1 text-gray-300">location_on</span> 
+                        <a href="https://maps.app.goo.gl/EZKYqzY5uLDtURHeA" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Pattinambakkam (Lighthouse Backside)</a>
+                      </span>
                     </div>
-                    <h4 className="font-display font-bold text-xl text-midnight dark:text-white mb-1">Saturday, Jan 31</h4>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium">
-                        <span className="relative flex h-2 w-2 mr-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        10 slots remaining
+                    <h4 className="font-display font-bold text-xl text-midnight dark:text-white mb-1">Saturday, 31 Jan '26</h4>
+                    <div className="flex flex-col gap-1 text-sm text-gray-500 dark:text-gray-400 font-medium mb-4">
+                        <div className="flex items-center gap-2">
+                           <span className="material-icons-round text-base text-gray-400">schedule</span>
+                           12:15 AM - 04:00 AM
+                        </div>
+                         <div className="flex items-center gap-2">
+                           <span className="material-icons-round text-base text-gray-400">person</span>
+                           POC: Vijay (73058 07017)
+                        </div>
                     </div>
+
+                    {/* Do's and Don'ts Mini-List */}
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg p-3 text-xs space-y-2 mb-4">
+                        <div>
+                            <span className="font-bold text-emerald-600 dark:text-emerald-400 block mb-1">✅ Do's</span>
+                            <ul className="list-disc pl-4 space-y-0.5 text-gray-600 dark:text-gray-300">
+                                <li>Stay together as teams</li>
+                                <li>Bring own water bottle</li>
+                                <li>Wear comfortable footwear</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span className="font-bold text-rose-600 dark:text-rose-400 block mb-1">❌ Don'ts</span>
+                            <ul className="list-disc pl-4 space-y-0.5 text-gray-600 dark:text-gray-300">
+                                <li>No large bags or expensive accessories</li>
+                                <li>Do not enter the water</li>
+                                <li>No children below 12 years</li>
+                            </ul>
+                        </div>
+                    </div>
+
                   </div>
                   <button onClick={onJoin} className="w-full sm:w-auto px-6 py-3 bg-secondary/10 text-teal-700 dark:text-secondary hover:bg-secondary hover:text-white rounded-xl text-sm font-bold transition-all whitespace-nowrap shadow-sm hover:shadow-md active:scale-95 flex items-center justify-center gap-2">
-                    Join Us
+                    Register Now
                     <span className="material-icons-round text-sm">arrow_forward</span>
                   </button>
                 </div>

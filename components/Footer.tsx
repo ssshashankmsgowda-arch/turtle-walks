@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
             <span className="w-8 h-px bg-teal-500"></span> Navigation
           </h3>
           <ul className="space-y-3 text-sm">
-            <li><a href="#" className="hover:text-primary transition-colors flex items-center gap-2">About the Mission</a></li>
+            {/* <li><a href="#" className="hover:text-primary transition-colors flex items-center gap-2">About the Mission</a></li> */}
             <li><a href="#" className="hover:text-primary transition-colors flex items-center gap-2">Turtle Walks</a></li>
             <li><a href="#" className="hover:text-primary transition-colors flex items-center gap-2">Gallery</a></li>
           </ul>

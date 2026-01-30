@@ -69,7 +69,7 @@ export const MetricsSection: React.FC = () => {
   const nextItems = [1, 2, 3].map(offset => metricsData[(currentIndex + offset) % metricsData.length]);
 
   return (
-    <section className="bg-slate-900 py-20 px-4 flex items-center justify-center">
+    <section className="bg-slate-900 py-20 px-4 flex items-center justify-center" id="impact">
       <div className="max-w-7xl w-full mx-auto relative">
         <div className="bg-slate-900 rounded-[2rem] shadow-2xl overflow-hidden border border-slate-700/50">
           <div className="grid grid-cols-1 lg:grid-cols-2">
