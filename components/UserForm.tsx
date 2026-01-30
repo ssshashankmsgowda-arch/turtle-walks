@@ -29,6 +29,27 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
   const [cropper, setCropper] = useState<any>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
 
+  // Local state for First/Last name splitting
+  // logic: if fullName exists, try to split. Logic matches "Ram Kumar" -> First: Ram, Last: Kumar
+  const [firstName, setFirstName] = useState(() => {
+    if (!userData.fullName) return '';
+    const parts = userData.fullName.trim().split(' ');
+    return parts[0];
+  });
+  const [lastName, setLastName] = useState(() => {
+    if (!userData.fullName) return '';
+    const parts = userData.fullName.trim().split(' ');
+    return parts.slice(1).join(' ');
+  });
+
+  // Sync effect: Update userData whenever firstName or lastName changes
+  useEffect(() => {
+    const full = `${firstName} ${lastName}`.trim();
+    if (full !== userData.fullName) {
+      setUserData({ ...userData, fullName: full });
+    }
+  }, [firstName, lastName]);
+
   // --- Photo Input Handlers ---
 
   // Clean up Blob URLs to prevent memory leaks
@@ -167,10 +188,11 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
     const phoneRegex = /^[0-9]{10,12}$/;
 
     return (
-      userData.fullName.trim().length > 2 &&
+      firstName.trim().length > 0 && // First Name Mandatory
+      // lastName is optional
       emailRegex.test(userData.email.trim()) &&
-      phoneRegex.test(userData.phone.trim())
-      // && userData.photo !== ''
+      phoneRegex.test(userData.phone.trim()) &&
+      userData.photo !== '' // Photo Mandatory
     );
   };
 
@@ -275,21 +297,45 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
             {/* Inputs Section */}
             <div className="space-y-6">
 
-              {/* Full Name */}
-              <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 ml-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  value={userData.fullName}
-                  onChange={(e) => {
-                    const formatted = e.target.value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-                    setUserData({ ...userData, fullName: formatted });
-                  }}
-                  placeholder="Ram Kumar"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all"
-                />
+              {/* Name Split: First Name & Last Name */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* First Name */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 ml-1">
+                    First Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      // Auto-capitalize first letter
+                      const formatted = val.charAt(0).toUpperCase() + val.slice(1);
+                      setFirstName(formatted);
+                    }}
+                    placeholder="Ram"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all"
+                  />
+                </div>
+
+                {/* Last Name */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 ml-1">
+                    Last Name <span className="text-slate-400 font-normal normal-case">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      // Auto-capitalize first letter
+                      const formatted = val.charAt(0).toUpperCase() + val.slice(1);
+                      setLastName(formatted);
+                    }}
+                    placeholder="Kumar"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-stone-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-indiaNavy/10 focus:border-indiaNavy outline-none transition-all"
+                  />
+                </div>
               </div>
 
 
