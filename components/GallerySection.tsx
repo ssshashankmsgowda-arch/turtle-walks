@@ -4,7 +4,7 @@ const galleryImages = [
   { src: '/assets/turtle_hero_bg_3.png', alt: 'Releasing hatchlings at dawn', span: 'col-span-1 md:col-span-2 row-span-2' },
   { src: '/assets/turtle_hero_bg_2.jpg', alt: 'Night patrol team', span: 'col-span-1' },
   { src: '/assets/turtle_hero_bg.jpeg', alt: 'Olive Ridley Turtle', span: 'col-span-1' },
-  { src: '/assets/poster.png', alt: 'Conservation awareness', span: 'col-span-1 md:col-span-2' },
+
   // Duplicating for grid effect if needed, or just keeping these 4 for a nice mosaic
 ];
 
