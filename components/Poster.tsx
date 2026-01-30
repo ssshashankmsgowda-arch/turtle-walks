@@ -62,9 +62,9 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
       <div
         className="absolute z-10 flex items-center justify-start text-left"
         style={{
-          // Shifted right to accommodate wider photo
-          left: '58%', 
-          top: '19%', 
+          // Shifted left and up to overlay 'HAFIZ KHAN' exactly
+          left: '54%', 
+          top: '17.5%', 
           width: '40%',
           height: 'auto'
         }}
@@ -74,7 +74,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
           style={{
             fontFamily: '"Montserrat", sans-serif',
             fontWeight: 700,
-            fontSize: (userData.fullName || 'Ram Kumar').length > 20 ? '40px' : '55px',
+            fontSize: (userData.fullName || 'Ram Kumar').length > 20 ? '24px' : '36px',
             textShadow: '0px 2px 4px rgba(0,0,0,0.5)'
           }}
         >
