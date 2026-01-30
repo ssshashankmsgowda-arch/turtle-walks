@@ -63,8 +63,8 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
         className="absolute z-10 flex items-center justify-start text-left"
         style={{
           // Shifted left and up to overlay 'HAFIZ KHAN' exactly
-          left: '54%', 
-          top: '18.2%', 
+          left: '51%', 
+          top: '19.5%', 
           width: '40%',
           height: 'auto'
         }}
