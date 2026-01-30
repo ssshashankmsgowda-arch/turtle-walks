@@ -21,7 +21,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
   return (
     <div
       id={id || 'certificate-visual'}
-      className={`relative aspect-[1080/1600] bg-white overflow-hidden text-gray-900 mx-auto shadow-sm ${className}`}
+      className={`relative aspect-[1455/2000] bg-white overflow-hidden text-gray-900 mx-auto shadow-sm ${className}`}
     >
       {console.log('🖼️ Poster Rendered:', { userData, photo: userData.photo ? 'Present' : 'Missing' })}
 

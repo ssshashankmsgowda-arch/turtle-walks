@@ -63,11 +63,11 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
       clone.style.top = '-10000px';   // Hide it off-screen
       clone.style.left = '-10000px';
       
-      // Set to 1080px width as requested
-      clone.style.width = '1080px';    
+      // Set to 1455px width as requested
+      clone.style.width = '1455px';    
 
-      // Set to 1600px height as requested
-      clone.style.height = '1600px';
+      // Set to 2000px height as requested
+      clone.style.height = '2000px';
       
       clone.style.transform = 'none'; // Remove any CSS scaling
       clone.style.margin = '0';
