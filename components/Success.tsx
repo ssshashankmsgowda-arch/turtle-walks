@@ -79,21 +79,33 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
       const nameContainer = clone.querySelector('div[style*="left: 51%"]');
       if (nameContainer) {
         const h2Elements = nameContainer.querySelectorAll('h2');
-        const nameLength = userData.fullName.length;
-        const isLongName = nameLength > 20;
+        const nameText = userData.fullName || '';
+        const [first, ...rest] = nameText.split(' ');
+        const last = rest.join(' ');
 
-        // Base font sizes for HD (scaled up from poster)
-        const baseFirstSize = isLongName ? '55px' : '85px';
-        const baseLastSize = isLongName ? '40px' : '65px';
+        // Logic: Name > 7 chars? Reduce size by ~20%
+        // Base First: 85px -> 80% = 68px
+        // Base Last: 65px  -> 80% = 52px
 
         h2Elements.forEach((el, index) => {
            const h2 = el as HTMLElement;
-           h2.style.fontSize = index === 0 ? baseFirstSize : baseLastSize;
+           const isFirst = index === 0;
+           const text = isFirst ? first : last;
+           const isLong = text.length > 7;
+
+           let fontSize;
+           if (isFirst) {
+             fontSize = isLong ? '68px' : '85px';
+           } else {
+             fontSize = isLong ? '52px' : '65px';
+           }
+
+           h2.style.fontSize = fontSize;
            h2.style.whiteSpace = 'nowrap';
-           h2.style.fontWeight = index === 0 ? '800' : '700';
+           h2.style.fontWeight = isFirst ? '800' : '700';
            h2.style.textAlign = 'left'; 
            h2.style.fontFamily = '"Montserrat", sans-serif';
-           h2.style.marginBottom = index === 0 ? '5px' : '0'; // Add spacing between lines
+           h2.style.marginBottom = isFirst ? '5px' : '0'; // Add spacing between lines
            h2.style.display = 'block'; // Ensure block display for vertical stacking
         });
       }

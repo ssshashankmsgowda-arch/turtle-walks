@@ -73,7 +73,10 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
           const name = userData.fullName || 'Ram Kumar';
           const [first, ...rest] = name.split(' ');
           const last = rest.join(' ');
-          const isLongName = name.length > 20;
+          
+          // Logic: Name > 7 chars? Reduce size by ~20%
+          const firstSize = first.length > 7 ? '22px' : '28px'; // 28px * 0.8 ~= 22.4px
+          const lastSize = last.length > 7 ? '18px' : '22px';   // 22px * 0.8 ~= 17.6px
 
           return (
             <>
@@ -82,7 +85,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
                 style={{
                   fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 800,
-                  fontSize: isLongName ? '18px' : '28px', // Increased size for better visibility
+                  fontSize: firstSize,
                   textShadow: '0px 2px 4px rgba(0,0,0,0.5)',
                   marginBottom: '2px'
                 }}
@@ -95,7 +98,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
                   style={{
                     fontFamily: '"Montserrat", sans-serif',
                     fontWeight: 700,
-                    fontSize: isLongName ? '14px' : '22px', // Slightly smaller for last name
+                    fontSize: lastSize,
                     textShadow: '0px 2px 4px rgba(0,0,0,0.5)'
                   }}
                 >
