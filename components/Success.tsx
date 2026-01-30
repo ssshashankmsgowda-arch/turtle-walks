@@ -175,8 +175,8 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
-          title: 'My Turtle Pledge', // Updated title
-          text: `I’ve taken the pledge to protect and conserve our sea turtles.\nI invite you to take the pledge here:\nhttps://saveaturtle.in/\n\n#SaveATurtle #TurtlePledge`, // Updated text
+          title: 'My Turtle Pledge', 
+          text: `I have taken turtle walk to join and be part of it https://saveaturtle.vercel.app/`,
         });
       } else {
         // Fallback

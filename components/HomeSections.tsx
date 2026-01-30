@@ -20,7 +20,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({ onJoin, onInitiative
             </div>
             <div>
               <p className="font-bold text-sm sm:text-lg leading-tight">Report a Stranded Turtle</p>
-              <p className="text-[10px] sm:text-xs text-red-100 opacity-90 max-w-[250px] sm:max-w-none mx-auto sm:mx-0">Dead or alive, your report helps us track population health.</p>
+              <p className="text-[10px] sm:text-xs text-red-100 opacity-90 max-w-[250px] sm:max-w-none mx-auto sm:mx-0">To be a part of it call us 7305807017</p>
             </div>
           </div>
           <a className="flex items-center gap-1.5 sm:gap-2 bg-white text-red-700 px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-red-50 transition-colors shadow-sm" href="tel:+917305807017">

@@ -46,7 +46,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
         {userData.photo ? (
           <img
             src={userData.photo}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale"
             alt="User Photo"
           />
         ) : (

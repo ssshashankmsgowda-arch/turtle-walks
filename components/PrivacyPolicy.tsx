@@ -19,8 +19,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
                         onClick={onClose}
                         className="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center hover:bg-stone-200 transition-colors"
                     >
-                        <X size={18} />
-                    </button>
+                        <X size={18} 
                 </div>
 
                 {/* Content */}
