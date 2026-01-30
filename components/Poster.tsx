@@ -34,7 +34,7 @@ export const Poster: React.FC<PosterProps> = ({ id, userData, school, className 
 
       {/* Layer 2: Dynamic User Photo */}
       <div
-        className="absolute rounded-full overflow-hidden z-10 flex items-center justify-center bg-gray-100/50"
+        className="absolute rounded-lg overflow-hidden z-10 flex items-center justify-center bg-gray-100/50"
         style={{
           // Standard School Poster Photo Coordinates
           left: '26.07%',
