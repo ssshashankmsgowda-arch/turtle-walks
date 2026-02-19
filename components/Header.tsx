@@ -35,6 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ onLogoClick, onJoin }) => {
              <button 
                 onClick={onJoin}
                 className="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-bold rounded-full shadow-sm text-white bg-primary hover:bg-primary-hover transition-all transform hover:-translate-y-0.5"
+                type="button"
              >
                 Join Us
             </button>
@@ -43,6 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onLogoClick, onJoin }) => {
             <button 
               className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              type="button"
             >
               <span className="material-icons-round text-2xl">
                 {isMobileMenuOpen ? 'close' : 'menu'}
@@ -66,6 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ onLogoClick, onJoin }) => {
                     if (onJoin) onJoin();
                 }}
                 className="w-full mt-4 flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-full shadow-sm text-white bg-primary hover:bg-primary-hover transition-all"
+                type="button"
             >
                 Join Us
             </button>

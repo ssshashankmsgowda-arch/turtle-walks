@@ -52,6 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
               <button
                 onClick={onPrivacyClick}
                 className="hover:text-primary transition-colors text-left"
+                type="button"
               >
                 Privacy Policy
               </button>

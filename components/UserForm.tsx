@@ -226,6 +226,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
           <button
             onClick={onBack}
             className="absolute top-8 left-8 text-stone-400 hover:text-stone-600 transition-colors"
+            type="button"
           >
             ← Back
           </button>
@@ -273,6 +274,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 <button
                   onClick={() => fileInputRef.current?.click()}
                   className="hover:text-sky-600 transition-colors uppercase"
+                  type="button"
                 >
                   Upload Photo
                 </button>
@@ -280,6 +282,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 <button
                   onClick={startCamera}
                   className="hover:text-sky-600 transition-colors uppercase"
+                  type="button"
                 >
                   Use Camera
                 </button>
@@ -430,6 +433,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                   ? 'bg-gradient-to-r from-saffron to-[#f97316] text-white shadow-saffron/30 hover:shadow-saffron/40 hover:-translate-y-1'
                   : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                   }`}
+                type="button"
               >
                 Continue <ChevronRight size={20} />
               </button>
@@ -456,12 +460,14 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               <button
                 onClick={stopCamera}
                 className="w-12 h-12 rounded-full bg-stone-800 text-white flex items-center justify-center hover:bg-stone-700 transition-colors"
+                type="button"
               >
                 <X size={20} />
               </button>
               <button
                 onClick={capturePhoto}
                 className="w-16 h-16 rounded-full bg-white border-4 border-stone-300 flex items-center justify-center hover:scale-105 transition-transform"
+                type="button"
               >
                 <div className="w-12 h-12 rounded-full bg-sky-500"></div>
               </button>
@@ -481,7 +487,7 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
                 <Crop size={20} className="text-sky-500" />
                 <h3 className="font-bold text-lg text-slate-800">Adjust Photo</h3>
               </div>
-              <button onClick={cancelCrop} className="text-slate-400 hover:text-slate-600">
+              <button onClick={cancelCrop} className="text-slate-400 hover:text-slate-600" type="button">
                 <X size={24} />
               </button>
             </div>
@@ -497,12 +503,14 @@ export const UserForm: React.FC<UserFormProps> = ({ userData, setUserData, onBac
               <button
                 onClick={cancelCrop}
                 className="px-6 py-2.5 font-bold text-slate-500 hover:bg-slate-50 rounded-xl transition-colors"
+                type="button"
               >
                 Cancel
               </button>
               <button
                 onClick={saveCrop}
                 className="px-6 py-2.5 bg-indiaNavy hover:bg-indiaNavy/90 text-white font-bold rounded-xl shadow-lg shadow-indiaNavy/20 transition-colors"
+                type="button"
               >
                 Save Photo
               </button>

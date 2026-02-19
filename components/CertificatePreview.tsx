@@ -17,7 +17,7 @@ export const CertificatePreview: React.FC<PreviewProps> = ({ userData, onBack, o
       <div className="w-full max-w-lg flex flex-col items-center">
         {/* Header */}
         <div className="w-full flex items-center justify-between mb-8">
-          <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium">
+          <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium" type="button">
             ← Edit Details
           </button>
           <div className="text-sm font-semibold text-saffron bg-saffron/10 px-3 py-1 rounded-full">
@@ -39,12 +39,14 @@ export const CertificatePreview: React.FC<PreviewProps> = ({ userData, onBack, o
           <button
             onClick={onBack}
             className="flex-1 py-3 bg-white border border-stone-200 text-stone-700 font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-stone-50 transition-colors"
+            type="button"
           >
             <Edit2 size={18} /> Modify
           </button>
           <button
             onClick={onConfirm}
             className="flex-1 py-3 bg-gradient-to-r from-saffron to-[#f97316] text-white font-bold rounded-xl shadow-lg shadow-saffron/20 flex items-center justify-center gap-2 hover:shadow-saffron/30 transition-all"
+            type="button"
           >
             Looks Good <CheckCircle2 size={18} />
           </button>

@@ -6,11 +6,12 @@ This document outlines the steps taken to fix the identified security vulnerabil
 
 **File:** `GoogleAppsScript.js`
 
-- **Issue:** Authentication failed open if the secret was missing. DoS via large payloads.
+- **Issue:** Authentication failed open if the secret was missing. DoS via large payloads. Information leakage via stack traces.
 - **Fix:**
     - Updated `isValidToken` to return `false` if `API_TOKEN` is missing.
     - Added `validateLength` function.
     - Added length checks for `studentName`, `schoolName`, `email`, `phone`, `grade`, and `section`.
+    - Sanitized `doPost` to suppress detailed error messages (`error.toString()`) and return a generic "An internal error occurred." instead.
 
 **Verification:**
 1.  Open the Google Apps Script editor.
@@ -40,8 +41,17 @@ This document outlines the steps taken to fix the identified security vulnerabil
     - Renamed `VITE_API_TOKEN` to `VITE_PUBLIC_API_TOKEN`.
     - Removed unused `services/dataStore.ts`.
     - Cleaned up `vite.config.ts`.
+    - Optimized bundle size with vendor chunk splitting in `vite.config.ts`.
+
+## 4. Accessibility & Code Quality
+
+**Files:** `Hero.tsx`, `UserForm.tsx`, `Header.tsx`, `Footer.tsx`
+
+- **Issue:** Missing `alt` text for images. Buttons triggering accidental form submissions (`type` attribute missing).
+- **Fix:**
+    - Added descriptive `alt` text to images in `Hero.tsx` and `InitiativesSection.tsx`.
+    - Added `type="button"` to all non-submit buttons (e.g., "Back", "Close", "Download", "Share").
 
 **Verification:**
 1.  Build the project locally (`npm run build`).
-2.  Search the output JS bundle for `VITE_PUBLIC_API_TOKEN` (it should be replaced by the value during build).
-3.  Verify the application still submits data successfully (assuming correct environment setup).
+2.  Verify the application behaves correctly (e.g., clicking "Back" in `UserForm` navigates back instead of submitting the form).

@@ -96,6 +96,7 @@ export const InitiativeDetail: React.FC<InitiativeDetailProps> = ({ initiativeId
                         <button 
                             onClick={onJoin}
                             className="block w-full py-4 bg-[#0EA5E9] hover:bg-sky-500 text-white font-bold text-center rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-1 mb-4"
+                            type="button"
                         >
                             Register as Start
                         </button>
@@ -120,6 +121,7 @@ export const InitiativeDetail: React.FC<InitiativeDetailProps> = ({ initiativeId
             <button 
                 onClick={onJoin}
                 className="mt-8 px-8 py-3 bg-[#0EA5E9] hover:bg-sky-500 text-white font-bold rounded-full transition-all"
+                type="button"
             >
                 Register Interest
             </button>
@@ -174,6 +176,7 @@ export const InitiativeDetail: React.FC<InitiativeDetailProps> = ({ initiativeId
           <button 
             onClick={onBack}
             className="absolute top-24 left-4 md:left-8 z-10 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-2 transition-all"
+            type="button"
           >
              <span className="material-icons-outlined text-2xl">arrow_back</span>
           </button>

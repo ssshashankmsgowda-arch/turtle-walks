@@ -33,6 +33,7 @@ export const GroupRegistrationForm: React.FC<GroupRegistrationFormProps> = ({ on
           <button
             onClick={onBack}
             className="w-full py-3 bg-[#FF7F50] hover:bg-[#E56A3F] text-white font-bold rounded-lg transition-colors"
+            type="button"
           >
             Back to Home
           </button>
@@ -47,6 +48,7 @@ export const GroupRegistrationForm: React.FC<GroupRegistrationFormProps> = ({ on
          <button 
           onClick={onBack}
           className="flex items-center text-gray-500 hover:text-[#001B48] mb-6 transition-colors text-sm font-medium"
+          type="button"
         >
           <span className="material-icons-round text-lg mr-1">arrow_back</span>
           Back

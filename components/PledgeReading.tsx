@@ -47,7 +47,7 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
     <div className="min-h-screen bg-canvas pt-20 pb-0 flex flex-col">
       {/* Top Bar */}
       <div className="px-4 mb-4 max-w-lg mx-auto w-full">
-        <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium mb-4 block">
+        <button onClick={onBack} className="text-subText hover:text-indiaNavy font-medium mb-4 block" type="button">
           ← Back to Preview
         </button>
         <h2 className="text-2xl font-display font-bold text-indiaNavy">Save a Turtle Initiative</h2>
@@ -72,6 +72,7 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
               <button
                 onClick={handleSelectAll}
                 className="text-xs font-bold text-orange-600 hover:text-orange-700 uppercase tracking-wide"
+                type="button"
               >
                 {allChecked ? 'Unselect All' : 'Select All'}
               </button>
@@ -115,6 +116,7 @@ export const PledgeReading: React.FC<PledgeReadingProps> = ({ userData, onBack, 
               ? 'bg-gradient-to-r from-saffron to-[#f97316] text-white shadow-lg hover:-translate-y-1'
               : 'bg-stone-200 text-stone-400 cursor-not-allowed'
               }`}
+            type="button"
           >
             Take the Pledge <ShieldAlert size={20} />
           </button>

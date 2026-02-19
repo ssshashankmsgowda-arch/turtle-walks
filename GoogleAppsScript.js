@@ -99,7 +99,8 @@ function doPost(e) {
             .setMimeType(ContentService.MimeType.JSON);
 
     } catch (error) {
-        return ContentService.createTextOutput(JSON.stringify({ result: 'error', error: error.toString() }))
+        // Generic error message to avoid leaking stack traces
+        return ContentService.createTextOutput(JSON.stringify({ result: 'error', error: 'An internal error occurred.' }))
             .setMimeType(ContentService.MimeType.JSON);
     }
 }

@@ -108,7 +108,7 @@ export const MetricsSection: React.FC = () => {
                 <p className="text-lg text-slate-400 mb-10 max-w-md leading-relaxed">
                   {mainData.desc}
                 </p>
-                <button className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-lg hover:bg-slate-200 transition-colors duration-300 w-fit group">
+                  <button className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-lg hover:bg-slate-200 transition-colors duration-300 w-fit group" type="button">
                   Become a Volunteer
                   <span className="material-icons-round ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </button>

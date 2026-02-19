@@ -241,6 +241,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
               onClick={handleDownload}
               disabled={isProcessing}
               className="flex-1 py-4 bg-stone-800 text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-stone-900 transition-colors disabled:opacity-50"
+              type="button"
             >
               <Download size={20} /> Download
             </button>
@@ -248,6 +249,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
               onClick={handleShare}
               disabled={isProcessing}
               className="flex-1 py-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 hover:-translate-y-1 transition-all disabled:opacity-50"
+              type="button"
             >
               <Share2 size={20} /> Share
             </button>
@@ -267,6 +269,7 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
           <button
             onClick={onReset}
             className="w-full py-3 bg-white border-2 border-indiaNavy text-indiaNavy font-bold text-sm hover:bg-indiaNavy hover:text-white flex items-center justify-center gap-2 mt-4 rounded-xl transition-all"
+            type="button"
           >
             <RefreshCw size={16} /> RETURN HOME
           </button>

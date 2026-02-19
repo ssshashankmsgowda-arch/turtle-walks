@@ -111,7 +111,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({ onJoin, onInitiative
                     </div>
 
                   </div>
-                  <button onClick={onJoin} className="w-full sm:w-auto px-6 py-3 bg-secondary/10 text-teal-700 dark:text-secondary hover:bg-secondary hover:text-white rounded-xl text-sm font-bold transition-all whitespace-nowrap shadow-sm hover:shadow-md active:scale-95 flex items-center justify-center gap-2">
+                  <button onClick={onJoin} className="w-full sm:w-auto px-6 py-3 bg-secondary/10 text-teal-700 dark:text-secondary hover:bg-secondary hover:text-white rounded-xl text-sm font-bold transition-all whitespace-nowrap shadow-sm hover:shadow-md active:scale-95 flex items-center justify-center gap-2" type="button">
                     Register Now
                     <span className="material-icons-round text-sm">arrow_forward</span>
                   </button>
@@ -132,7 +132,7 @@ export const HomeSections: React.FC<HomeSectionsProps> = ({ onJoin, onInitiative
                 <div className="bg-gradient-to-br from-midnight to-blue-900 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
                     <h3 className="font-display font-bold text-3xl mb-4 relative z-10">Bring Your Team</h3>
                     <p className="text-blue-100 mb-8 relative z-10">Corporate teams, school groups, and college clubs make the biggest impact.</p>
-                    <button onClick={onJoin} className="w-full py-3 bg-secondary hover:bg-teal-400 text-midnight font-bold rounded-lg transition-colors relative z-10">Register Group</button>
+                    <button onClick={onJoin} className="w-full py-3 bg-secondary hover:bg-teal-400 text-midnight font-bold rounded-lg transition-colors relative z-10" type="button">Register Group</button>
                 </div>
              </div>
              {/* Partners Grid */}

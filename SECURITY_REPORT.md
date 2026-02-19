@@ -10,7 +10,7 @@ A comprehensive white-box security assessment was conducted on the "Flag Pledge 
 
 **Overall Status:** **SECURE** (Post-Remediation)
 
-The initial assessment identified critical misconfigurations in the backend authentication logic and potential Denial of Service (DoS) vectors. These have been remediated. The frontend infrastructure was also hardened with industry-standard security headers.
+The initial assessment identified critical misconfigurations in the backend authentication logic and potential Denial of Service (DoS) vectors. These have been remediated. The frontend infrastructure was also hardened with industry-standard security headers, and a deep-dive audit addressed accessibility, usability, and potential information leakage.
 
 ---
 
@@ -18,43 +18,37 @@ The initial assessment identified critical misconfigurations in the backend auth
 
 ### 2.1. Broken Access Control (Backend Authentication)
 - **Severity:** **CRITICAL**
-- **Description:** The `isValidToken` function in `GoogleAppsScript.js` was configured to "fail open" (`return true`) if the `API_TOKEN` script property was not set. This meant that if an administrator forgot to configure the secret, the backend would accept any request without authentication.
-- **Remediation:**
-  - Modified `isValidToken` to **fail close** (`return false`) if the secret is missing.
-  - This ensures the system is secure by default.
+- **Description:** The `isValidToken` function in `GoogleAppsScript.js` was configured to "fail open" (`return true`) if the `API_TOKEN` script property was not set.
+- **Remediation:** Modified `isValidToken` to **fail close** (`return false`) if the secret is missing.
 
 ### 2.2. Denial of Service (DoS) via Large Payloads
 - **Severity:** **HIGH**
-- **Description:** The `doPost` function processed incoming JSON payloads without validating the size of the string fields. An attacker could send a request with a 10MB string for the `studentName` field, potentially exhausting the script's execution time or storage quotas in Google Sheets.
-- **Remediation:**
-  - Implemented a `validateLength` function.
-  - Added strict length checks for all input fields (`studentName`, `schoolName`, `email`, `phone`, `grade`, `section`) before processing.
+- **Description:** The `doPost` function processed incoming JSON payloads without validating the size of the string fields.
+- **Remediation:** Implemented `validateLength` to enforce strict length checks for all input fields.
 
-### 2.3. Sensitive Data Exposure (API Token)
+### 2.3. Information Leakage (Error Handling)
+- **Severity:** **MEDIUM**
+- **Description:** The backend `catch` block returned `error.toString()`, potentially exposing stack traces or internal script details to the client.
+- **Remediation:** Updated `GoogleAppsScript.js` to return a generic "An internal error occurred" message.
+
+### 2.4. Sensitive Data Exposure (API Token)
 - **Severity:** **MEDIUM** (Accepted Risk)
-- **Description:** The `VITE_API_TOKEN` was used in `services/db.ts`. In a client-side application (SPA), all environment variables prefixed with `VITE_` are bundled into the JavaScript code sent to the user's browser. This means the "API Token" is visible to any user who inspects the network traffic or source code.
-- **Remediation:**
-  - Renamed `VITE_API_TOKEN` to `VITE_PUBLIC_API_TOKEN` to explicitly acknowledge its public nature.
-  - Added comments documenting that this token serves as a basic deterrent (shared secret) rather than a high-security credential.
-  - **Recommendation:** For higher security, a middleware server (e.g., Vercel Functions) should be used to hide the token, or a CAPTCHA system should be implemented.
+- **Description:** The `VITE_API_TOKEN` was exposed in the client-side bundle.
+- **Remediation:** Renamed to `VITE_PUBLIC_API_TOKEN` to explicitly acknowledge its public nature.
 
-### 2.4. Missing Security Headers
+### 2.5. Missing Security Headers
 - **Severity:** **LOW**
-- **Description:** The application lacked standard HTTP security headers, leaving it vulnerable to Clickjacking and certain XSS attacks.
-- **Remediation:**
-  - Configured `vercel.json` to include:
-    - `Strict-Transport-Security` (HSTS)
-    - `X-Frame-Options: DENY` (Prevents Clickjacking)
-    - `X-Content-Type-Options: nosniff`
-    - `Referrer-Policy`
-    - `Permissions-Policy`
-    - `Content-Security-Policy` (CSP) restricting script and image sources.
+- **Description:** The application lacked standard HTTP security headers.
+- **Remediation:** Configured `vercel.json` with HSTS, X-Frame-Options, CSP, etc.
 
-### 2.5. Unused Code / Dead Logic
+### 2.6. Accessibility & Usability (Frontend)
 - **Severity:** **LOW**
-- **Description:** `services/dataStore.ts` contained unused logic pointing to a different Google Apps Script URL.
+- **Description:**
+    - Several images lacked meaningful `alt` text.
+    - Buttons used for navigation or actions inside forms were missing `type="button"`, potentially causing accidental form submissions.
 - **Remediation:**
-  - Deleted `services/dataStore.ts` to reduce attack surface and confusion.
+    - Added descriptive `alt` text to images in `Hero.tsx` and `InitiativesSection.tsx`.
+    - Explicitly added `type="button"` to all non-submit buttons in `UserForm`, `Header`, `Footer`, etc.
 
 ---
 
@@ -64,14 +58,16 @@ The initial assessment identified critical misconfigurations in the backend auth
 | :--- | :---: | :---: |
 | **Authentication (Backend)** | **Critical** | **Low** |
 | **Input Validation (DoS)** | **High** | **Low** |
+| **Information Leakage** | **Medium** | **Low** |
 | **Data Exposure (Token)** | **Medium** | **Medium (Accepted)** |
 | **Configuration (Headers)** | **Medium** | **Low** |
+| **Accessibility** | **Low** | **Low** |
 
 ---
 
-## 4. Next Steps & Recommendations
+## 4. Next Steps
 
 1.  **Deploy Backend:** Update the Google Apps Script with the new code in `GoogleAppsScript.js`.
-2.  **Set Script Property:** In the Google Apps Script editor, go to **Project Settings > Script Properties** and add `API_TOKEN` with a strong random string.
-3.  **Configure Environment:** In Vercel Project Settings, add the Environment Variable `VITE_PUBLIC_API_TOKEN` with the same value.
-4.  **Monitor Usage:** Regularly check Google Sheet execution logs for "Payload too large" errors or unauthorized attempts.
+2.  **Set Script Property:** Set `API_TOKEN` in Google Apps Script properties.
+3.  **Configure Environment:** Set `VITE_PUBLIC_API_TOKEN` in Vercel.
+4.  **Monitor Usage:** Watch for generic error logs in GAS execution history.

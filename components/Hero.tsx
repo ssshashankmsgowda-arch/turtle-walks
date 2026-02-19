@@ -33,10 +33,10 @@ export const Hero: React.FC<HeroProps> = ({ onStart, onGroupRegister }) => {
     <section className="relative h-[105dvh] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
-          <div key={slide.image} className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlideIndex ? 'opacity-100' : 'opacity-0'}`}>
+          <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlideIndex ? 'opacity-100' : 'opacity-0'}`}>
             <img 
                 src={slide.image} 
-                alt={`Hero Background ${index + 1}`} 
+                alt={index === 0 ? "Olive Ridley Turtle on beach" : index === 1 ? "Turtle hatchlings heading to sea" : "Conservation volunteers on beach"}
                 className="absolute inset-0 w-full h-full object-cover" 
             />
             {/* Dynamic overlay based on alignment */}
@@ -68,6 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart, onGroupRegister }) => {
                 <button 
                     onClick={onStart}
                     className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold rounded-full text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all transform hover:scale-105"
+                    type="button"
                 >
                     Download Certificate
                     <span className="material-icons-round ml-2 text-lg sm:text-xl">download</span>
@@ -75,6 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart, onGroupRegister }) => {
                 <button 
                     onClick={onGroupRegister}
                     className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold rounded-full text-white border-2 border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all"
+                    type="button"
                 >
                     JOIN US FOR WALKS
                     <span className="material-icons-round ml-2 text-lg sm:text-xl">groups</span>

@@ -127,12 +127,14 @@ export const InitiativesSection: React.FC<InitiativesSectionProps> = ({ onJoin, 
           <button 
             onClick={() => scrollInitiatives('left')}
             className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+            type="button"
           >
             <span className="material-icons-outlined text-sm">arrow_back_ios_new</span>
           </button>
           <button 
             onClick={() => scrollInitiatives('right')}
             className="w-10 h-10 rounded-full bg-[#0EA5E9] text-white flex items-center justify-center hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20"
+            type="button"
           >
             <span className="material-icons-outlined text-sm">arrow_forward_ios</span>
           </button>
@@ -174,6 +176,7 @@ export const InitiativesSection: React.FC<InitiativesSectionProps> = ({ onJoin, 
                             ? 'bg-[#0EA5E9] hover:bg-sky-500 text-slate-900 group-hover:bg-white group-hover:text-slate-900' 
                             : 'border-2 border-white/40 hover:bg-white hover:border-white hover:text-slate-900 text-white'
                         }`}
+                    type="button"
                   >
                     {item.buttonText}
                     <span className="material-icons-outlined text-xl">arrow_forward</span>
