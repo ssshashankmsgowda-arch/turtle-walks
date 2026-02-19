@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { UserData } from '../types';
 import { useApp } from '../context/AppContext';
 import { Poster } from './Poster';
-import { Download, Share2, RefreshCw, CheckCircle, Loader2 } from 'lucide-react';
+import { Download, Share2, RefreshCw, CheckCircle, Loader2, ExternalLink } from 'lucide-react';
 import { DB } from '../services/db';
 
 interface SuccessProps {
@@ -252,6 +252,17 @@ export const Success: React.FC<SuccessProps> = ({ userData, onReset }) => {
               <Share2 size={20} /> Share
             </button>
           </div>
+
+          {selectedSchool?.website && (
+            <a
+              href={selectedSchool.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 bg-white border-2 border-orange-500 text-orange-600 font-bold text-sm hover:bg-orange-50 flex items-center justify-center gap-2 mt-4 rounded-xl transition-all"
+            >
+              <ExternalLink size={16} /> VISIT {selectedSchool.name.toUpperCase()}
+            </a>
+          )}
 
           <button
             onClick={onReset}

@@ -29,6 +29,7 @@ export interface School {
     width: string;
     height: string;
   };
+  website?: string;           // Organization website URL
 }
 
 export interface StudentData {

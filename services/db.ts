@@ -22,7 +22,8 @@ const INITIAL_SCHOOLS: School[] = [
         posterLogoUrl: "/assets/ezone_specialist.png", // Visible in Poster
         isActive: true,
         isFeatured: true,
-        templateId: 'tricolor'
+        templateId: 'tricolor',
+        website: 'https://www.india.gov.in/' // Example for generic public
     },
 
     {
