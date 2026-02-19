@@ -401,9 +401,11 @@ export const DB = {
         if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.startsWith('http')) {
             try {
                 // Add Auth Token for Security
+                // Note: VITE_PUBLIC_API_TOKEN is exposed in client-side code.
+                // It serves as a basic deterrent (like a shared API key), not a high-security credential.
                 const payload = {
                     ...newSubmission,
-                    auth_token: import.meta.env.VITE_API_TOKEN || ''
+                    auth_token: import.meta.env.VITE_PUBLIC_API_TOKEN || ''
                 };
 
                 await fetch(GOOGLE_SCRIPT_URL, {

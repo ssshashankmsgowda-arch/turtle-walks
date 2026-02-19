@@ -10,12 +10,20 @@ function isValidToken(token) {
     // 1. Get the secret token from Script Properties
     var secret = PropertiesService.getScriptProperties().getProperty('API_TOKEN');
 
-    // 2. If no secret is set, we FAIL OPEN for development (warn user)
-    //    In production, this should return false.
-    if (!secret) return true;
+    // 2. If no secret is set, we FAIL CLOSE (Security Best Practice)
+    //    The admin MUST set 'API_TOKEN' in Script Properties.
+    if (!secret) return false;
 
     // 3. Compare tokens
     return token === secret;
+}
+
+/**
+ * Validates input length to prevent DoS/Storage exhaustion
+ */
+function validateLength(str, max) {
+  if (!str) return true;
+  return str.toString().length <= max;
 }
 
 /**
@@ -55,7 +63,20 @@ function doPost(e) {
         }
 
         // -------------------------------------------------------------
-        // 3. MAP DATA TO COLUMNS & SANITIZE
+        // 3. VALIDATE DATA SIZE (DoS Prevention)
+        // -------------------------------------------------------------
+        if (!validateLength(data.studentName, 100) ||
+            !validateLength(data.schoolName, 100) ||
+            !validateLength(data.email, 100) ||
+            !validateLength(data.phone, 20) ||
+            !validateLength(data.grade, 20) ||
+            !validateLength(data.section, 20)) {
+             return ContentService.createTextOutput(JSON.stringify({ result: 'error', error: 'Payload too large' }))
+                .setMimeType(ContentService.MimeType.JSON);
+        }
+
+        // -------------------------------------------------------------
+        // 4. MAP DATA TO COLUMNS & SANITIZE
         // -------------------------------------------------------------
         var row = [
             sanitize(data.id),                  // Col 1: ID
@@ -70,7 +91,7 @@ function doPost(e) {
         ];
 
         // -------------------------------------------------------------
-        // 4. SAVE TO SHEET
+        // 5. SAVE TO SHEET
         // -------------------------------------------------------------
         sheet.appendRow(row);
 
