@@ -10,9 +10,9 @@ function isValidToken(token) {
     // 1. Get the secret token from Script Properties
     var secret = PropertiesService.getScriptProperties().getProperty('API_TOKEN');
 
-    // 2. If no secret is set, we FAIL OPEN for development (warn user)
-    //    In production, this should return false.
-    if (!secret) return true;
+    // 2. If no secret is set, we FAIL CLOSED for security
+    //    This prevents unauthorized access if the token is accidentally removed.
+    if (!secret) return false;
 
     // 3. Compare tokens
     return token === secret;

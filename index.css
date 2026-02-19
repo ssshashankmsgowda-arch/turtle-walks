@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS from index.html */
+
+/* Hide scrollbar for cleaner UI in modals */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Cropper Customization for Round Preview (Visual only) */
+.cropper-view-box,
+.cropper-face {
+  border-radius: 50%;
+}
+
+/* Ensure the image fills the crop box nicely */
+.cropper-view-box {
+  outline: 0;
+  box-shadow: 0 0 0 1px #39f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* --- Brand Identity (Turtle) --- */
+  --color-turtle-green: #2E8B57; /* Sea Green */
+  --color-turtle-teal: #20B2AA;  /* Light Sea Green */
+  --color-ocean-blue: #006994;   /* Ocean Blue */
+  --color-sand: #F4A460;         /* Sandy Brown */
+
+  /* --- Semantic UI Colors --- */
+  --color-primary: var(--color-ocean-blue);
+  --color-accent: var(--color-sand);
+  --color-success: var(--color-turtle-green);
+  --color-danger: #D32F2F;
+
+  /* --- Typography --- */
+  --text-primary: #333333;
+  --text-secondary: #5F6368;
+  --text-on-primary: #FFFFFF;
+
+  /* --- Surfaces --- */
+  --bg-body: #FAFAFA;
+  --bg-surface: #FFFFFF;
+
+  /* --- Special Gradients --- */
+  --gradient-tricolor: linear-gradient(180deg,
+      rgba(32, 178, 170, 0.1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(0, 105, 148, 0.1) 100%);
+}
+
+.bg-tricolor-gradient {
+  background: var(--gradient-tricolor);
+}
